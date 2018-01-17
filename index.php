@@ -1395,7 +1395,7 @@
                     <div class="collapsible-body">
                         <pre class="brush: jscript">
                             var s = "hello, world" //Начнем.
-                            s.charAt(0) //=>"h": первый символ.
+                            s.charAt(0) //=>"h": возврощает указанный символ из строки по указаному id.
                             s.charAt(s.length-1) //=>"d": последний символ.
                             s.substring(1,4) //=>"ell": 2й, 3й и 4й символы.
                             s.slice(1,4) //=>"ell": тоже самое
@@ -1414,6 +1414,8 @@
                             <b>Number</b> - преобразовует обьект в число, либо var a = +"123"<br>
                             <b>valueOf</b> - преобразовует остальные обьекты в строку<br>
                             <b>serializeArray</b> - преобразовывает массив в JSON обьект<br>
+                        </div>
+                        'use strict'; - использовать современный стиль програмирования, указывается в начале документа
                     </div>
                 </li>
 
@@ -1626,9 +1628,12 @@
                             a.indexOf(3)       // => -1: нет элемента со значением 3
                         </pre>
                         <h5>Методы Array</h5>
-                        <b>Array.join()</b> преобразует все элементы массива в строки, противоположность<br>
+                        <b>Array.join()</b> преобразует все элементы массива в строки, противоположность .split<br>
                         <b>String.split(",")</b> преобразует строку в массив по разделителю<br>
                         <b>Array.slice()</b> возвращает фрагмент, или подмассив, указанного массива<br>
+                        <b>.splice(index[, deleteCount, elem1, ..., elemN])</b>
+                        Удалить deleteCount элементов, начиная с номера index, а затем вставить elem1, ..., elemN на их место. Возвращает массив из удалённых элементов.<br>
+                        <b>Array.slice(begin, end)</b>> копирует участок массива от begin до end, не включая end. Исходный массив при этом не меняется.<br>
                         <pre class="brush: jscript">
                             var a = [1, 2, 3];
                             a.join();              // => "1,2,3"
@@ -1693,20 +1698,27 @@
                 </li>
 
                 <li>
-                    <div class="collapsible-header">Преобразование переменных и обьектов</div>
+                    <div class="collapsible-header">Новые возможности, дестриктуризация, метод spread "..."</div>
                     <div class="collapsible-body">
-                    <pre class="brush: jscript">
+                        <pre class="brush: jscript">
+                            'use strict';
 
-                    </pre>
+                            let [firstName, lastName, ...rest] = "Юлий Цезарь Император Рима".split(" ");
+
+                            alert(firstName); // Юлий
+                            alert(lastName);  // Цезарь
+                            alert(rest);      // Император,Рима (массив из 2х элементов)
+                        </pre>
+                        <p>Метод "<b>...</b>" собирает все остальные элемениты массива
                     </div>
                 </li>
 
                 <li>
                     <div class="collapsible-header">Преобразование переменных и обьектов</div>
                     <div class="collapsible-body">
-                    <pre class="brush: jscript">
+                        <pre class="brush: jscript">
 
-                    </pre>
+                        </pre>
                     </div>
                 </li>
 
