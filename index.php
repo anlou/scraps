@@ -1394,6 +1394,7 @@
                     <div class="collapsible-header">Работа c переменными, преобразование</div>
                     <div class="collapsible-body">
                         <pre class="brush: jscript">
+                            let s = "hello, world" //Обьявление локальной переменной, область видимости внутри { ... }
                             var s = "hello, world" //Начнем.
                             s.charAt(0) //=>"h": возврощает указанный символ из строки по указаному id.
                             s.charAt(s.length-1) //=>"d": последний символ.
