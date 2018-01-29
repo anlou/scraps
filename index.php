@@ -1856,6 +1856,14 @@
                                 $('#listLink').append('<p>' + extLink + '</p>');
                             });
                         </pre>
+                        <h5>Оборачиваем элементы в div</h5>
+                        <pre class="brush: jscript">
+                            var img = $('<img/>'); // создали новые элементы (jQuery-синтаксис)
+                            var div = $('<div/>'); // и поместили в переменную
+
+                            img.wrap(div); // обернуть img в div
+                            div.append('<span/>');
+                        </pre>
                     </div>
                 </li>
 
