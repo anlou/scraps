@@ -1393,10 +1393,11 @@
                 <li>
                     <div class="collapsible-header">Работа c переменными, преобразование</div>
                     <div class="collapsible-body">
+                        <h5>Строки</h5>
                         <pre class="brush: jscript">
                             'use strict'; - использовать современный стиль програмирования, указывается в начале документа
 
-                            var s = prompt("Текст в поле")
+                            var s = prompt("Ввдите текст")
 
                             let s = "hello, world" //Обьявление локальной переменной, область видимости внутри { ... }
 
@@ -1407,6 +1408,10 @@
                             s.substring(1,4) //=>"ell": 2й, 3й и 4й символы.
 
                             s.slice(1,4) //=>"ell": срез массива или строки, от 1 до 4
+
+                            s.substring(start [, end]) возвращает подстроку, от start до end(не включая)
+
+                            s.substr(start [, length]) возвращает подстроку, от start длинною в length
 
                             s.indexOf("l") //=>2: позиция первого символа l.
 
@@ -1419,16 +1424,45 @@
                             s.replace("h","H") //=>"Hello, world": замещает все вхождения подстроки
 
                             s.typeof //=> "string" - возвращает тип переменной
+
+                            s.toUpperCase() //=> "HELLO WORLD" преобразовывает в верхний регистр
+                            s.toLowerCase() //=> "hello world" преобразовывает в нижний регистр
+
+                        </pre>
+                        <h5>Числа</h5>
+                        <pre class="brush: jscript">
+                            // Преобразование в число
+                            var s = "12.34";
+                            var num = +s ; // 12.34
+
+                            // Для проверки на число использовать
+                            function isNumeric(n) {
+                                return !isNaN(parseFloat(n)) && isFinite(n);
+                            }
+
+                            parseInt('12px'); //=> 12: читает из строки целое число до первого строчного символа.
+                            parseInt('12.3.4'); //=> 12.3: читает из строки дробное число.
+
+                            isNaN(num); // проверка на число
+
+                            Math.floor(num) // округляет вниз
+                            Math.ceil(num) // округляет вверх
+                            Math.round(num) // округляет до ближайшего целого
+                            var item = ~~12.3 //=> 12: округление битовым оператором
+                            num.toFixed(1) // округление до выбранного 10ка
+
+                            s.indexOf("подстрока"[, начальная_позиция]) - выполняет поиск по фрагменту, возвращает -1 если не найдена, или порядковый номер вхождения строки
+                            // Побитовое оператор НЕ "~"
+                            // Проверка if ( ~str.indexOf(...) ) означает, что результат indexOf отличен от -1, т.е. совпадение есть.
                         </pre>
                         <div class="card-panel">
                             <h5>Преобразование переменных</h5>
                             <b>toString()</b> - преобразовует обьект в строку<br>
-                            <b>Number()</b> - преобразовует обьект в число, либо var a = +"123"<br>
+                            <b>Number()</b> - преобразовует обьект в число<br>
+                            <b>var num = +s</b> - преобразование строки в число<br>
                             <b>valueOf()</b> - преобразовует остальные обьекты в строку<br>
                             <b>serializeArray()</b> - преобразовывает массив в JSON обьект<br>
-                            <b>str.toUpperCase()</b> - преобразовывает в верхний регистр<br>
-                            <b>str.toLowerCase()</b> - преобразовывает в нижний регистр<br>
-                            <b>num.Math.round</b> - округление<br>
+
                         </div>
 
                     </div>
@@ -1544,8 +1578,145 @@
                 </li>
 
                 <li>
+                    <div class="collapsible-header">Массивы</div>
+                    <div class="collapsible-body">
+                        <pre class="brush: jscript">
+                            var arr = []; // Создать пустой массив
+
+                            var arr = new Array; // Создать пустой массив
+
+                            arr.push("zero") // Добавляет элемент в конец массива. a = ["zero"]
+
+                            arr.push("one", "two") // Добавляет еще два элемента. a = ["zero", "one", "two"]
+
+                            arr.unshift("three") // Добавляет элемент в начало массива.
+
+                            arr.shift() / Удаляет элемент в начале массива и возвращает его значение. В отличии от оператора delete, свдвигает все элементы вниз на позицию ниже их текущих индексов
+
+                            arr.pop() // Удаляет элемент в конце массива и возвращает его значение.
+
+                            delete arr[1]; // теперь в массиве a отсутствует элемент с индексом 1
+
+                            1 in arr // => false: индекс 1 в массиве не определен
+
+                            var $temp = arr.pop() // уменьшает длину массива на 1 и возвращает значение удаленного элемента
+                        </pre>
+                        <h5>Обход элементов массива</h5>
+                        <pre class="brush: jscript">
+                            var keys = Object.keys(obj);           // Получить массив имен свойств объекта obj
+                            var values = []                        // Массив для сохранения значений свойств
+                            for(var i = 0; i < keys.length; i++) { // Для каждого элемента в массиве
+                                var key = keys[i];                 // Получить имя свойства по индексу
+                                values[i] = obj[key];              // Сохранить значение в массиве values
+                            }
+
+                            arr.forEach(function(){ ... })         // Проходит по каждому элементы массива
+                        </pre>
+                        <div class="card-panel">
+                            Методы <b>indexOf()</b> и <b>lastIndexOf()</b> отыскивают в массиве элемент с указанным значением и возвращают индекс
+                            первого найденного элемента или –1, если элемент с таким значением отсутствует. Метод <b>indexOf()</b>
+                            выполняет поиск от начала массива к концу, а метод <b>lastIndexOf()</b> – от конца к началу.
+                        </div>
+                        <pre class="brush: jscript">
+                            a = [0, 1, 2, 1, 0];
+                            a.indexOf(1)       // => 1: a[1] = 1
+                            a.lastIndexOf(1)   // => 3: a[3] = 1
+                            a.indexOf(3)       // => -1: нет элемента со значением 3
+                        </pre>
+                        <h5>Методы Array</h5>
+                        <b>Array.join()</b> преобразует все элементы массива в строки, противоположность .split<br>
+                        <b>String.split(",")</b> преобразует строку в массив по разделителю<br>
+                        <b>Array.slice()</b> возвращает фрагмент, или подмассив, указанного массива<br>
+                        <b>.splice(index[, deleteCount, elem1, ..., elemN])</b>
+                        Удалить deleteCount элементов, начиная с номера index, а затем вставить elem1, ..., elemN на их место. Возвращает массив из удалённых элементов.<br>
+                        <b>Array.slice(begin, end)</b>> копирует участок массива от begin до end, не включая end. Исходный массив при этом не меняется.<br>
+                        <pre class="brush: jscript">
+                            var a = [1, 2, 3];
+                            a.join();              // => "1,2,3"
+                            a.join(" ");           // => "1 2 3"
+                            a.join("");            // => "123"
+
+                            var a = [1,2,3,4,5];
+                            a.slice(0,3);   // Вернет [1,2,3]
+                            a.slice(3);     // Вернет [4,5]
+                        </pre>
+                    </div>
+                </li>
+
+                <li>
                     <div class="collapsible-header">Обьекты</div>
                     <div class="collapsible-body">
+                        <h5>Создание обьекта</h5>
+                        <pre class="brush: jscript">
+                            obj = new Object();
+                            obj = {};
+
+                            var menuSetup = {
+                                width: 300,
+                                height: 200,
+                                title: "Menu"
+                            };
+                            // то же самое, что:
+                            var menuSetup = {};
+                            menuSetup.width = 300;
+                            menuSetup.height = 200;
+                            menuSetup.title = 'Menu';
+
+                            delete person.age // удаление св-ва обьекта
+
+                            //Проверка наличия св-ва в обьекте.
+                            if ("age" in person) {
+                                alert( "Свойство name существует!" );
+                            }
+                            person.age === undefined //=> true
+
+                            //Для доступа у сво-ву имя которгового находится в переменной
+                            let property = "age";
+                            person[property] = 28;
+
+                        </pre>
+
+                        <h5>Свойства обьекта</h5>
+                        <pre class="brush: jscript">
+                            // Для перебора св-в обекта
+                            for (var key in obj) {
+                                /* ... делать что-то с obj[key] ... */
+                            }
+
+                            // Количество св-в в обьекте
+                            Object.keys(obj).length
+                        </pre>
+
+                        <h5>Клонирование обьекта</h5>
+                        <pre class="brush: jscript">
+                            //Создание ССЫЛКИ на обьект
+
+                            var user = { name: 'Вася' };
+                            var admin = user;
+
+                            admin.name = 'Петя'; // поменяли данные через admin
+                            alert(user.name); // 'Петя', изменения видны в user
+
+                            //Создание КЛОНА обьекта
+                            var user = {
+                                name: "Вася",
+                                age: 30
+                            };
+
+                            var clone = {}; // новый пустой объект
+
+                            // скопируем в него все свойства user
+                            for (var key in user) {
+                                clone[key] = user[key];
+                            }
+
+                            // теперь clone - полностью независимая копия
+                            clone.name = "Петя"; // поменяли данные в clone
+
+                            alert( user.name ); // по-прежнему "Вася"
+                        </pre>
+
+<!--                        ---------------------------->
                         <div class="card-panel">
                             <h5>Прототипы</h5>
                             <b>Object.prototype</b> - содержит прототип(родитель) обьекта.<br>
@@ -1603,63 +1774,9 @@
                                 value: 'static'
                             });
                         </pre>
+
                     </div>
                 </li>
-
-                <li>
-                    <div class="collapsible-header">Массивы</div>
-                    <div class="collapsible-body">
-                        <pre class="brush: jscript">
-                            arr = [];              // Создать пустой массив
-                            arr.push("zero")       // Добавить значение в конец. a = ["zero"]
-                            arr.push("one", "two") // Добавить еще два значения. a = ["zero", "one", "two"]
-                            arr.unshift("three")   // Добавить значение в начало массива.
-                            delete arr[1];         // теперь в массиве a отсутствует элемент с индексом 1
-                            1 in arr               // => false: индекс 1 в массиве не определен
-                            var $temp = arr.pop()  // уменьшает длину массива на 1 и возвращает значение удаленного элемента
-                            arr.shift()            // Удаляет элемент в начале массива и возвращает его значение. В отличии от оператора delete, свдвигает все элементы вниз на позицию ниже их текущих индексов
-
-                        </pre>
-                        <h5>Обход элементов массива</h5>
-                        <pre class="brush: jscript">
-                            var keys = Object.keys(obj);           // Получить массив имен свойств объекта obj
-                            var values = []                        // Массив для сохранения значений свойств
-                            for(var i = 0; i < keys.length; i++) { // Для каждого элемента в массиве
-                                var key = keys[i];                 // Получить имя свойства по индексу
-                                values[i] = obj[key];              // Сохранить значение в массиве values
-                            }
-
-                            arr.forEach(function(){ ... })         // Проходит по каждому элементы массива
-                        </pre>
-                        <div class="card-panel">
-                            Методы <b>indexOf()</b> и <b>lastIndexOf()</b> отыскивают в массиве элемент с указанным значением и возвращают индекс
-                            первого найденного элемента или –1, если элемент с таким значением отсутствует. Метод <b>indexOf()</b>
-                            выполняет поиск от начала массива к концу, а метод <b>lastIndexOf()</b> – от конца к началу.
-                        </div>
-                        <pre class="brush: jscript">
-                            a = [0, 1, 2, 1, 0];
-                            a.indexOf(1)       // => 1: a[1] = 1
-                            a.lastIndexOf(1)   // => 3: a[3] = 1
-                            a.indexOf(3)       // => -1: нет элемента со значением 3
-                        </pre>
-                        <h5>Методы Array</h5>
-                        <b>Array.join()</b> преобразует все элементы массива в строки, противоположность .split<br>
-                        <b>String.split(",")</b> преобразует строку в массив по разделителю<br>
-                        <b>Array.slice()</b> возвращает фрагмент, или подмассив, указанного массива<br>
-                        <b>.splice(index[, deleteCount, elem1, ..., elemN])</b>
-                        Удалить deleteCount элементов, начиная с номера index, а затем вставить elem1, ..., elemN на их место. Возвращает массив из удалённых элементов.<br>
-                        <b>Array.slice(begin, end)</b>> копирует участок массива от begin до end, не включая end. Исходный массив при этом не меняется.<br>
-                        <pre class="brush: jscript">
-                            var a = [1, 2, 3];
-                            a.join();              // => "1,2,3"
-                            a.join(" ");           // => "1 2 3"
-                            a.join("");            // => "123"
-
-                            var a = [1,2,3,4,5];
-                            a.slice(0,3);   // Вернет [1,2,3]
-                            a.slice(3);     // Вернет [4,5]
-                        </pre>
-                    </div>
 
                 <li>
                     <div class="collapsible-header">Цепочка вызвов</div>
@@ -1713,7 +1830,7 @@
                 </li>
 
                 <li>
-                    <div class="collapsible-header">Новые возможности, дестриктуризация, метод spread "..."</div>
+                    <div class="collapsible-header">Дестриктуризация, метод spread "..."</div>
                     <div class="collapsible-body">
                         <pre class="brush: jscript">
                             'use strict';
@@ -1728,14 +1845,7 @@
                     </div>
                 </li>
 
-                <li>
-                    <div class="collapsible-header">Преобразование переменных и обьектов</div>
-                    <div class="collapsible-body">
-                        <pre class="brush: jscript">
 
-                        </pre>
-                    </div>
-                </li>
 
                 <li>
                     <div class="collapsible-header">Преобразование переменных и обьектов</div>
