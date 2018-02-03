@@ -1623,25 +1623,70 @@
                             a.lastIndexOf(1)   // => 3: a[3] = 1
                             a.indexOf(3)       // => -1: нет элемента со значением 3
                         </pre>
-                        <h5>Методы Array</h5>
-                        <b>Array.join()</b> преобразует все элементы массива в строки, противоположность .split<br>
-                        <b>String.split(",")</b> преобразует строку в массив по разделителю<br>
-                        <b>Array.slice()</b> возвращает фрагмент, или подмассив, указанного массива<br>
-                        <b>.splice(index[, deleteCount, elem1, ..., elemN])</b>
-                        Удалить deleteCount элементов, начиная с номера index, а затем вставить elem1, ..., elemN на их место. Возвращает массив из удалённых элементов.<br>
-                        <b>Array.slice(begin, end)</b>> копирует участок массива от begin до end, не включая end. Исходный массив при этом не меняется.<br>
-                        <pre class="brush: jscript">
-                            var a = [1, 2, 3];
-                            a.join();              // => "1,2,3"
-                            a.join(" ");           // => "1 2 3"
-                            a.join("");            // => "123"
 
-                            var a = [1,2,3,4,5];
-                            a.slice(0,3);   // Вернет [1,2,3]
-                            a.slice(3);     // Вернет [4,5]
-                        </pre>
+                        <div class="card-panel">
+                            <h5>Методы Array</h5>
+                            <b>Array.join(";")</b> преобразует все элементы массива в строки, противоположность .split<br>
+                            <b>String.split(",")</b> преобразует строку в массив по разделителю<br>
+                            <b>Array.slice()</b> возвращает фрагмент, или подмассив, указанного массива<br>
+                            <b>.splice(index[, deleteCount, elem1, ..., elemN])</b>
+                            Удалить deleteCount элементов, начиная с номера index, а затем вставить elem1, ..., elemN на их место. Возвращает массив из удалённых элементов.<br>
+                            <b>Array.slice(begin, end)</b> копирует участок массива от begin до end, не включая end. Исходный массив при этом не меняется.<br>
+                            <pre class="brush: jscript">
+                                var ary = [1, 2, 3];
+                                ary.join();              // => "1,2,3"
+                                ary.join(" ");           // => "1 2 3"
+                                ary.join("");            // => "123"
+
+                                var a = [1,2,3,4,5];
+                                a.slice(0,3);   // Вернет [1,2,3]
+                                a.slice(3);     // Вернет [4,5]
+                            </pre>
+                            <b>Array.sort(fn)</b> сортировка массива<br>
+                            Для указания своего порядка сортировки в метод arr.sort(fn) нужно передать функцию fn от двух элементов, которая умеет сравнивать их.<br>
+                            <pre class="brush: jscript">
+                                function compareNumeric(a, b) {
+                                    if (a > b) return 1;
+                                    if (a < b) return -1;
+                                }
+
+                                var arr = [ 1, 2, 15 ];
+
+                                arr.sort(compareNumeric);
+
+                                alert(arr);  // 1, 2, 15
+                            </pre>
+                            <p>Или в одну строку</p>
+                            <pre class="brush: jscript">
+                                function compareNumeric(a, b) {
+                                    return a - b;
+                                }
+                            </pre>
+                            <b>arr.concat(value1, value2, … valueN)</b> - создаёт новый массив, в который копируются элементы из arr, а также value1, value2, ... valueN.
+                            <pre class="brush: jscript">
+                                var arr = [1, 2];
+                                var newArr = arr.concat(3, 4);
+
+                                alert( newArr ); // 1,2,3,4
+                            </pre>
+                            <b>indexOf/lastIndexOf / arr.indexOf(searchElement[, fromIndex])</b> - возвращает номер элемента searchElement в массиве arr или -1, если его нет. Поиск начинается с номера fromIndex, если он указан<br>
+
+                            <h5>Преобразование ключей обьекта в массив</h5>
+                            <b>Object.keys(obj)</b>
+                            <pre class="brush: jscript">
+                                var user = {
+                                    name: "Петя",
+                                    age: 30
+                                }
+
+                                var keys = Object.keys(user);
+
+                                alert( keys ); // name, age
+                            </pre>
+                        </div>
                     </div>
                 </li>
+
 
                 <li>
                     <div class="collapsible-header">Обьекты</div>
