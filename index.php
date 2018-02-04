@@ -95,27 +95,35 @@
         <div id="html" class="col">
             <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/html.php"?>
         </div>
+
         <div id="css" class="col">
             <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/css.php"?>
         </div>
+
         <div id="php" class="col">
             <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/php.php"?>
         </div>
+
         <div id="mysql" class="col">
             <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/mysql.php"?>
         </div>
+
         <div id="js" class="col">
             <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/js.php"?>
         </div>
+
         <div id="jq" class="col">
             <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/jq.php"?>
         </div>
+
         <div id="curl" class="col">
             <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/curl.php"?>
         </div>
+
         <div id="twig" class="col">
             <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/twig.php"?>
         </div>
+
         <div id="push" class="col">
             <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/push.php"?>
         </div>

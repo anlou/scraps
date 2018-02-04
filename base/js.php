@@ -183,6 +183,34 @@
                 }
 
                 arr.forEach(function(){ ... })         // Проходит по каждому элементы массива
+                arr.forEach(callback[, thisArg])       // Для каждого элемента массива вызывает функцию callback.
+                // Этой функции он передаёт три параметра callback(item, i, arr):
+                // item – очередной элемент массива.
+                // i – его номер.
+                // arr – массив, который перебирается.
+
+                var arr = ["Яблоко", "Апельсин", "Груша"];
+                arr.forEach(function(item, i, arr) {
+                    alert( i + ": " + item + " (массив:" + arr + ")" );
+                });
+
+                arr.filter(callback[, thisArg]) // Используется для фильтрации массива через функцию. Он создаёт новый массив, в который войдут только те элементы arr, для которых вызов callback(item, i, arr) возвратит true.
+
+                var arr = [1, -1, 2, -2, 3];
+                var positiveArr = arr.filter(function(number) {
+                    return number > 0;
+                });
+                alert( positiveArr ); // 1,2,3
+
+                arr.every/arr.some // Метод «arr.every(callback[, thisArg])» возвращает true, если вызов callback вернёт true для каждого элемента arr. Метод «arr.some(callback[, thisArg])» возвращает true, если вызов callback вернёт true для какого-нибудь элемента arr.
+
+                var arr = [1, -1, 2, -2, 3];
+                function isPositive(number) {
+                    return number > 0;
+                }
+                alert( arr.every(isPositive) ); // false, не все положительные
+                alert( arr.some(isPositive) ); // true, есть хоть одно положительное
+
             </pre>
             <div class="card-panel">
                 Методы <b>indexOf()</b> и <b>lastIndexOf()</b> отыскивают в массиве элемент с указанным значением и
@@ -202,7 +230,7 @@
                 <b>Array.join(";")</b> преобразует все элементы массива в строки, противоположность .split<br>
                 <b>String.split(",")</b> преобразует строку в массив по разделителю<br>
                 <b>Array.slice()</b> возвращает фрагмент, или подмассив, указанного массива<br>
-                <b>.splice(index[, deleteCount, elem1, ..., elemN])</b>
+                <b>Array.splice(index[, deleteCount, elem1, ..., elemN])</b>
                 Удалить deleteCount элементов, начиная с номера index, а затем вставить elem1, ..., elemN на их место.
                 Возвращает массив из удалённых элементов.<br>
                 <b>Array.slice(begin, end)</b> копирует участок массива от begin до end, не включая end. Исходный массив
