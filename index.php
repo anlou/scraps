@@ -89,6 +89,7 @@
                 <li class="tab"><a href="#curl">cURL</a></li>
                 <li class="tab"><a href="#twig">TWIG</a></li>
                 <li class="tab"><a href="#push">Web PUSH</a></li>
+                <li class="tab"><a href="#push">git</a></li>
             </ul>
         </div>
 
@@ -126,6 +127,10 @@
 
         <div id="push" class="col">
             <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/push.php"?>
+        </div>
+
+        <div id="push" class="col">
+            <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/git.php"?>
         </div>
 
     </div>
