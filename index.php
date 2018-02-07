@@ -66,7 +66,7 @@
             width: 250%;
         }
 
-        .collapsible-header, .collapsible-body, #html, #css, #php, #jq, #js, #ajax, #curl, #twig, #mysql, #push {
+        .collapsible-header, .collapsible-body, #html, #css, #php, #jq, #js, #ajax, #curl, #twig, #mysql, #push, #git {
             width: 100%;
         }
     </style>
@@ -88,6 +88,7 @@
                 <li class="tab"><a href="#curl">cURL</a></li>
                 <li class="tab"><a href="#twig">TWIG</a></li>
                 <li class="tab"><a href="#push">Web PUSH</a></li>
+                <li class="tab"><a href="#git">git</a></li>
             </ul>
         </div>
 
@@ -125,6 +126,10 @@
 
         <div id="push" class="col">
             <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/push.php"?>
+        </div>
+
+        <div id="git" class="col">
+            <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/git.php"?>
         </div>
 
     </div>
