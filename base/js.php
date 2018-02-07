@@ -184,11 +184,14 @@
 
                 arr.forEach(function(){ ... })         // Проходит по каждому элементы массива
                 arr.forEach(callback[, thisArg])       // Для каждого элемента массива вызывает функцию callback.
-                // Этой функции он передаёт три параметра callback(item, i, arr):
-                // item – очередной элемент массива.
-                // i – его номер.
-                // arr – массив, который перебирается.
-
+            </pre>
+            <div class="card-panel">
+                Этой функции он передаёт три параметра callback(item, i, arr):<br>
+                item – очередной элемент массива.<br>
+                i – его номер.<br>
+                arr – массив, который перебирается.<br>
+            </div>
+            <pre class="brush: jscript">
                 var arr = ["Яблоко", "Апельсин", "Груша"];
                 arr.forEach(function(item, i, arr) {
                     alert( i + ": " + item + " (массив:" + arr + ")" );

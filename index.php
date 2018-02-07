@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <link id="favicon" rel="icon" type="image/png" sizes="64x64" href="/img/messenger_blue.icon">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
