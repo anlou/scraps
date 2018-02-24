@@ -7,31 +7,30 @@
         <div class="collapsible-header">Базовые функции jQuary</div>
         <div class="collapsible-body">
             <h5>Выполнение скрипта после загрузки документа</h5>
-            <pre class="brush: jscript">
-                        $ (document).ready(function () {
-                            //здесь находится ваш код
-                        });
+            <pre data-enlighter-language="javascript">
+$ (document).ready(function () {
+    //здесь находится ваш код
+});
 
-                        //или сокращенная версия
+//или сокращенная версия
 
-                        $(function() {
-                          //здесь находится ваш код
-                        });
+$(function() {
+  //здесь находится ваш код
+});
 
-                        //Как показала практика более корректный способ
+//Как показала практика более корректный способ
 
-                        window.onload = function() {
-                           // Ваш скрипт
-                        };
-                    </pre>
+window.onload = function() {
+   // Ваш скрипт
+};
+            </pre>
             Выбор идентификатора (по ID) banner и изменение html кода внутри него
-            <pre class="brush: jscript">$(‘#banner’).html(‘<h1>Java</h1>’);</pre>
+            <pre data-enlighter-language="javascript">$(‘#banner’).html(‘<h1>Java</h1>’);</pre>
 
-
-            <pre class="brush: jscript">
-                            //Выполнение нескольких команд к одному элементу, записывается через точку
-                            $(‘#popUp’) . weight(300px) . height(250px);
-                        </pre>
+            <pre data-enlighter-language="javascript">
+//Выполнение нескольких команд к одному элементу, записывается через точку
+$(‘#popUp’) . weight(300px) . height(250px);
+            </pre>
         </div>
     </li>
 
@@ -74,17 +73,17 @@
                 <b>.css()</b> – изменение CSS свойств элемента выборки.
             </div>
             <h5>Примеры</h5>
-            <pre class="brush: jscript">$(‘#error’).html(‘<p>Новый код элемента</p>’)</pre>
-            <pre class="brush: jscript">$(#errors h2).text(“Ни одной ошибки не найдено”)</pre>
-            <pre class="brush: jscript">$(‘body’).css(‘font-size’, ‘14pt’)</pre>
+            <pre data-enlighter-language="javascript">$(‘#error’).html(‘<p>Новый код элемента</p>’)</pre>
+            <pre data-enlighter-language="javascript">$(#errors h2).text(“Ни одной ошибки не найдено”)</pre>
+            <pre data-enlighter-language="javascript">$(‘body’).css(‘font-size’, ‘14pt’)</pre>
             для изменения нескольких св-ств, их нужно разделять <b>;</b>
-            <pre class="brush: jscript">.css(‘fotn-size’, ‘14pt’; ‘padding’, ‘120px’)</pre>
+            <pre data-enlighter-language="javascript">.css(‘fotn-size’, ‘14pt’; ‘padding’, ‘120px’)</pre>
             или использовать схему:
-            <pre class="brush: css">
-                        .css({
-                            ‘font-size’ : ‘14pt’,
-                            ‘padding’ : ‘120px’,
-                        });
+            <pre data-enlighter-language="css">
+.css({
+    ‘font-size’ : ‘14pt’,
+    ‘padding’ : ‘120px’,
+});
                         </pre>
             <div class="card-panel">
                 <h5>each</h5>
@@ -92,26 +91,26 @@
                 преимущество состоит в том что, для каждого исполнения значения могут быть не линейными, удобнее
                 всего использовать анонимную функцию:
             </div>
-            <pre class="brush: jscript">$(‘.menu’).each(function() { …команды });</pre>
+            <pre data-enlighter-language="javascript">$(‘.menu’).each(function() { …команды });</pre>
             <div class="card-panel">
                 Для обращения к элементу внутри функции, используется термин <b>$(this)</b>, например для получения
                 внешних ссылок с статьи:
             </div>
-            <pre class="brush: jscript">
-                            $('a[href^="http:\\"]').each(function()
-                            {
-                                //Cоздает переменую и присваевает значение attr(атрибута) текущей 'a'
-                                var extLink = $(this).attr('href');
-                                $('#listLink').append('<p>' + extLink + '</p>');
-                            });
+            <pre data-enlighter-language="javascript">
+$('a[href^="http:\\"]').each(function()
+{
+    //Cоздает переменую и присваевает значение attr(атрибута) текущей 'a'
+    var extLink = $(this).attr('href');
+    $('#listLink').append('<p>' + extLink + '</p>');
+});
                         </pre>
             <h5>Оборачиваем элементы в div</h5>
-            <pre class="brush: jscript">
-                            var img = $('<img/>'); // создали новые элементы (jQuery-синтаксис)
-                            var div = $('<div/>'); // и поместили в переменную
+            <pre data-enlighter-language="javascript">
+var img = $('<img/>'); // создали новые элементы (jQuery-синтаксис)
+var div = $('<div/>'); // и поместили в переменную
 
-                            img.wrap(div); // обернуть img в div
-                            div.append('<span/>');
+img.wrap(div); // обернуть img в div
+div.append('<span/>');
                         </pre>
         </div>
     </li>
@@ -124,13 +123,13 @@
                 <b>.removeAttr()</b> – удаляет указанный атрибут выбранного элемента
                 <b>.remove()</b> - удаляет выбранные элементы из DOM
             </div>
-            <pre class="brush: jscript">
-                            $("img").attr("width","500");
+            <pre data-enlighter-language="javascript">
+$("img").attr("width","500");
 
-                            $(".input).removeAttr("title");
+$(".input).removeAttr("title");
 
-                            $("p").remove(":contains('Hello')");
-                        </pre>
+$("p").remove(":contains('Hello')");
+            </pre>
         </div>
     </li>
 
@@ -150,12 +149,12 @@
                 <b>hover</b> – событие наведения курсора, работает с двумя функциями(при наведении и при увода мыши в
                 сторону), сочетает в себе методы <b>mouseEnter и mouseLeave</b>. Общий вид:
             </div>
-            <pre class="brush: jscript">
-                            $('#menu').hover(function () {
-                                $('#submenu').show();
-                            }), function () {
-                                $('#submenu').hide();
-                            });
+            <pre data-enlighter-language="javascript">
+$('#menu').hover(function () {
+    $('#submenu').show();
+}), function () {
+    $('#submenu').hide();
+});
                         </pre>
             <!--                        2-->
             <div class="card-panel">
@@ -183,23 +182,23 @@
             </div>
             <!--                        5-->
             <h5>Пример использования событий:</h5>
-            <pre class="brush: jscript">
-                            $(document).ready(function(){
-                                $('html').dblclick(function(){
-                                    $('html').css('background-color', 'blue');
-                                });
-                                $('a').mouseover(function () {
-                                    var $message = 'Вы навели указатель на ссыль!';
-                                    $('.main').append($message);
-                                });
-                                $('#button').click(function () {
-                                    $(this).val('Прекрати это');
-                                });
-                                $('#textfield').focus(function () {
-                                    $(this).css('background-color', 'red');
-                                })
-                            });
-                        </pre>
+            <pre data-enlighter-language="javascript">
+$(document).ready(function(){
+    $('html').dblclick(function(){
+        $('html').css('background-color', 'blue');
+    });
+    $('a').mouseover(function () {
+        var $message = 'Вы навели указатель на ссыль!';
+        $('.main').append($message);
+    });
+    $('#button').click(function () {
+        $(this).val('Прекрати это');
+    });
+    $('#textfield').focus(function () {
+        $(this).css('background-color', 'red');
+    })
+});
+                </pre>
             <div class="card-panel">
                 <b>$(this)</b> – обращения к внутреннему элементу, который вызывает функцию
             </div>
@@ -214,12 +213,12 @@
                 всего лишь добавляете к функции имя параметра. Например, вы хотите найти координаты указателя мыши в
                 момент, когда происходит щелчок в каком-либо месте страницы.
             </div>
-            <pre class="brush: jscript">
-                            $ (document).click(function (evt) {
-                                 var xPos = evt.pageX;
-                                 var yPos = evt.pageY;
-                                 alert("X:" + xPos + "Y:" + yPos);
-                            }); // окончание события click
+            <pre data-enlighter-language="javascript">
+$ (document).click(function (evt) {
+     var xPos = evt.pageX;
+     var yPos = evt.pageY;
+     alert("X:" + xPos + "Y:" + yPos);
+}); // окончание события click
                         </pre>
             <div class="card-panel">
                 Объект события сохраняется в переменной <b>EVT</b>, это имя вводиться самостоятельно, и может быть любым
@@ -236,71 +235,69 @@
                     <b>which</b> - используется с событием нажатия клавиши для определения числового кода нажатой клавиши,
                     при  получении значения нажатой клавиши вернет ее номер, для его расшифровки используется функция
             </div>
-            <pre class="brush: jscript">String.fromCharCode(evt.which)</pre>
+            <pre data-enlighter-language="javascript">String.fromCharCode(evt.which)</pre>
             <!--                        7-->
             <h5>Отмена обычного поведения событий</h5>
-            <pre class="brush: jscript">
-                            $('#menu').click(function(evt) {
-                                // "Умный" JavaScript-код вставляется сюда
-                            evt.preventDefault(); // не переходи по ссылке
-                            }) ;
-                        </pre>
+            <pre data-enlighter-language="javascript">
+$('#menu').click(function(evt) {
+    // "Умный" JavaScript-код вставляется сюда
+evt.preventDefault(); // не переходи по ссылке
+}) ;
+            </pre>
             <div class="card-panel">
                 <b>evt.preventDefault()</b> – функция выполняющая отмену обычного поведения событий на странице,
                 например переход по ссылке. Можно использовать аналогичную запись:
             </div>
-            <pre class="brush: jscript">
-                            $('#menu').click(function(evt){
-                                // "Умный" JavaScript-код вставляется сюда
-                            return false; // не переходи по ссылке
-                            }) ;
-                        </pre>
+            <pre data-enlighter-language="javascript">
+$('#menu').click(function(evt){
+    // "Умный" JavaScript-код вставляется сюда
+return false; // не переходи по ссылке
+}) ;
+            </pre>
             <!--                        8-->
             <h5>Остановка события функцией jQuary</h5>
-            <pre class="brush: jscript">
-                            $('#theLink').click(function(evt) {
-                                // некие действия
-                                evt.stopPropagation(); //останавливает событие
-                            });
-                        </pre>
+            <pre data-enlighter-language="javascript">
+$('#theLink').click(function(evt) {
+    // некие действия
+    evt.stopPropagation(); //останавливает событие
+});
+            </pre>
             <!--                        9-->
             <h5>Удаление события</h5>
-            <pre class="brush: jscript">
-                            $ (‘.tabButton’).off(‘click’);
-                            //Для удаления всех событий оставляем .off() без аргументов
-                        </pre>
+            <pre data-enlighter-language="javascript">
+$ (‘.tabButton’).off(‘click’);
+//Для удаления всех событий оставляем .off() без аргументов
+            </pre>
             <!--                        10-->
             <h5>Проф. управление событиями</h5>
-            <pre class="brush: jscript">
-                            $(‘#селектор’).on(‘событие мыши’, селектор, данные, имя функции);
-                        </pre>
+            <pre data-enlighter-language="javascript">$(‘#селектор’).on(‘событие мыши’, селектор, данные, имя функции);</pre>
             <div class="card-panel">
                 Первый аргумент — это строка, содержащая имя события: например, щелчок, наведение курсора. Второй
                 аргумент не обязателен, он должен представлять собой допустимый селектор, например, tr.callout или #alarm. Третий
                 аргумент — это данные, которые вы желаете передать функции (в форме литерала объекта либо переменной, содержащей
                 литерал объекта) это список имен функций и их значения:
             </div>
-            <pre class="brush: jscript">
-                                {
-                                    firstName : ‘Иван’,
-                                    lastName : ‘Иванов’
-                                }
-                            </pre>
+            <pre data-enlighter-language="javascript">
+{
+    firstName : ‘Иван’,
+    lastName : ‘Иванов’
+}
+            </pre>
             <div class="card-panel">
                 Четвертый аргумент – другая функция, которая выполняет действие при запуске события.
                 Предположим, вы хотели бы создать всплывающее окно оповещение в ответ на событие, но сообщение в окне
                 должно  быть разным в зависимости от того, какой элемент инициировал событие. Один из способов сделать это —
                 создать  переменные, хранящие различные объектные константы, а затем передать переменные функции <b>on()</b>:
             </div>
-            <pre class="brush: jscript">
-                            var linkVar = {message:'Привет от ссылки'};
-                            var pVar = {message :'Привет от абзаца'};
-                            function showMessage(evt) {
-                                alert(evt.data.message);
-                            }
-                            $('a').on('mouseover', linkVar, showMessage);
-                            $('p').on('click', pVar, showMessage);
-                        </pre>
+            <pre data-enlighter-language="javascript">
+var linkVar = {message:'Привет от ссылки'};
+var pVar = {message :'Привет от абзаца'};
+function showMessage(evt) {
+    alert(evt.data.message);
+}
+$('a').on('mouseover', linkVar, showMessage);
+$('p').on('click', pVar, showMessage);
+            </pre>
         </div>
     </li>
 
@@ -324,7 +321,7 @@
                 скорость срабатывания, прозрачность указывается от 0 до 1(0.75=75%) Данная функция меняет прозрачность вне
                 зависимости от того виден элемент или нет
             </div>
-            <pre class="brush: jscript">$(‘p’).fadeTo(‘normal’,.75)</pre>
+            <pre data-enlighter-language="javascript">$(‘p’).fadeTo(‘normal’,.75)</pre>
 
             <div class="card-panel">
                 <h5>Скользящие элементы</h5>
@@ -336,46 +333,46 @@
             </div>
 
             <h5>Код для выпадающей менюхи</h5>
-            <pre class="brush: jscript">
-                            $(document).ready(function () {
-                                $('#open').click(function (evt){
-                                    evt.preventDefault();//не позволяет перейти по ссылке(для тех у кого выкл java)
-                                    $('#login form').slideToggle(600);
-                                    $(this).toggleClass('close');
-                                });//окончание click
-                            });//окончание ready
-                        </pre>
+            <pre data-enlighter-language="javascript">
+$(document).ready(function () {
+    $('#open').click(function (evt){
+        evt.preventDefault();//не позволяет перейти по ссылке(для тех у кого выкл java)
+        $('#login form').slideToggle(600);
+        $(this).toggleClass('close');
+    });//окончание click
+});//окончание ready
+            </pre>
             <p>Или для разных эффектов:</p>
-            <pre class="brush: jscript">
-                            $(document).ready(function () {
-                                $('#open').click(function (evt){
-                                    evt.preventDefault(); //не позволяет перейти по ссылке(для тех у кого выкл java)
-                                    if ($('#login form').is(':hidden')){
-                                        $('#login form').slideDown(600);
-                                        $(this).addClass('close');
-                                    } else {
-                                        $('#login form').fadeOut(600);
-                                        $(this).removeClass('close');
+            <pre data-enlighter-language="javascript">
+$(document).ready(function () {
+    $('#open').click(function (evt){
+        evt.preventDefault(); //не позволяет перейти по ссылке(для тех у кого выкл java)
+        if ($('#login form').is(':hidden')){
+            $('#login form').slideDown(600);
+            $(this).addClass('close');
+        } else {
+            $('#login form').fadeOut(600);
+            $(this).removeClass('close');
 
-                                    }
-                                });//окончание click
-                            });//окончание ready
-                        </pre>
+        }
+    });//окончание click
+});//окончание ready
+            </pre>
         </div>
     </li>
 
     <li>
         <div class="collapsible-header">Анимация средствами jQuary(.animate)</div>
         <div class="collapsible-body">
-                        <pre class="brush: jscript">
-                            $('#message').animate(
-                                {
-                                 left: '650рх',
-                                 opacity: .5,
-                                 fontSize: '24px';
-                                 }, 1500
-                            );
-                        </pre>
+            <pre data-enlighter-language="javascript">
+$('#message').animate(
+    {
+     left: '650рх',
+     opacity: .5,
+     fontSize: '24px';
+     }, 1500
+);
+                </pre>
             <div class="card-panel">
                 Функция <b>animate()</b> может принимать несколько аргументов. Первый — это литерал объекта, содержащий
                 свойства CSS, которые вы желаете анимировать, может задаваться относительно текущего его значения, выражениями
@@ -397,26 +394,24 @@
                 <b>easing:swing</b> – анимация начинается в более быстром темпе потом замедляется
                 пример:
             </div>
-            <pre class="brush: jscript">
-                            $(‘#element’).slideUp(1000, ‘linear’);
-                        </pre>
+            <pre data-enlighter-language="javascript">$(‘#element’).slideUp(1000, ‘linear’);</pre>
             <div class="card-panel">
                 При использовании функции <b>animate()</b> метод <b>easing</b> указывается в качестве третьего аргумента
                 после объектной константы, содержащей свойства CSS, которые вы хотите анимировать, и значения общей
                 скорости
                 анимации.
             </div>
-            <pre class="brush: jscript">
-                            $(‘#message’).animate(
-                            {
-                                left: ‘650рх’,
-                                opacity: .5,
-                                fontSize: ‘24px'
-                            },
-                            1500,
-                            ‘linear’
-                            );
-                        </pre>
+            <pre data-enlighter-language="javascript">
+$(‘#message’).animate(
+{
+    left: ‘650рх’,
+    opacity: .5,
+    fontSize: ‘24px'
+},
+1500,
+‘linear’
+);
+            </pre>
         </div>
     </li>
 
@@ -424,7 +419,7 @@
         <div class="collapsible-header">Ajax запросы</div>
         <div class="collapsible-body">
             <!--                        <b>load()</b> - загружает HTML-файл в указанный элемент на стра­нице.-->
-            <!--                        <pre class="brush: jscript">-->
+            <!--                        <pre data-enlighter-language="javascript">-->
             <!--                            //Путь к файлу указывается относительно файла использующего метод load() !-->
             <!--                            $ ('#headlines').load('news/todays_news.html');-->
             <!---->
@@ -432,134 +427,128 @@
             <!--                            $ ('#headlines').load('news/todays_news.html #news');-->
             <!--                        </pre>-->
             <b>get() и post()</b> базовая структура
-            <pre class="brush: jscript">
-                            $.get(url,  data,  callback);
-                            $.post(url,  data,  callback);
+            <pre data-enlighter-language="javascript">
+$.get(url,  data,  callback);
+$.post(url,  data,  callback);
 
-                            $.get('rateMovie.php', 'rating=5&user=BoBa');
-                            $.post('rateMovie.php', 'rating=5&user=BoBa');
-                        </pre>
+$.get('rateMovie.php', 'rating=5&user=BoBa');
+$.post('rateMovie.php', 'rating=5&user=BoBa');
+            </pre>
             При работе с функциями не используется селектор, достаточно символов <b>$.</b>
             При сложных фрагментах передаваемых данных можно использовать литерал
-            <pre class="brush: jscript">
-                            $.post('rankMovie.php',  { rating: 5 });
+            <pre data-enlighter-language="javascript">
+$.post('rankMovie.php',  { rating: 5 });
 
-                            //или
+//или
 
-                            var data = {
-                                rating: 5,
-                                user: 'Вова'
-                            }
-                            $ . post('rankMovie.php', data) ;
+var data = {
+    rating: 5,
+    user: 'Вова'
+}
+$ . post('rankMovie.php', data) ;
 
-                            //или
+//или
 
-                            $.post('rankMovie.php',
-                                {
-                                    rating: 5,
-                                    user: 'Вова'
-                                }
-                            );
-                        </pre>
+$.post('rankMovie.php',
+    {
+        rating: 5,
+        user: 'Вова'
+    }
+);
+        </pre>
             <!--                        ---->
             <h5>Обработка данных с сервера</h5>
-            <pre class="brush: jscript">
-                            //Выбирает каждую ссылку (элемент а) внутри другого эле­мента с идентификатором message
-                            $('#message а').click(function()  {
+            <pre data-enlighter-language="javascript">
+//Выбирает каждую ссылку (элемент а) внутри другого эле­мента с идентификатором message
+$('#message а').click(function()  {
 
-                                //Извлекает атрибут ссылки HREF, так, например, переменная href может содержать URL-адрестипа rate.php?гatе=5&moviе=123
-                                var href = $(this).attr('href');
+    //Извлекает атрибут ссылки HREF, так, например, переменная href может содержать URL-адрестипа rate.php?гatе=5&moviе=123
+    var href = $(this).attr('href');
 
-                                //Извлекает часть кода после знака «?» в URL-адресе, исполь­зуя метод slice()
-                                var  querystring = href.slice(href.indexOf('?')+1);
+    //Извлекает часть кода после знака «?» в URL-адресе, исполь­зуя метод slice()
+    var  querystring = href.slice(href.indexOf('?')+1);
 
-                                //Ajax-запрос. Используя метод GET, за­прос, содержащий строку запроса для ссылки, направляется серверному файлу  rate.php
-                                $.get('rate.php', querystring, processResponse);
+    //Ajax-запрос. Используя метод GET, за­прос, содержащий строку запроса для ссылки, направляется серверному файлу  rate.php
+    $.get('rate.php', querystring, processResponse);
 
-                                //Предотвращает стандартное поведение ссылки и не дает браузеру загрузить связанную с ней стра­ницу.
-                                return false;  //  блокировать  переход по  ссылке
-                            });
+    //Предотвращает стандартное поведение ссылки и не дает браузеру загрузить связанную с ней стра­ницу.
+    return false;  //  блокировать  переход по  ссылке
+});
 
 
-                            $.get('file.php',  data,  function(data,status)  {
-                                //Код функции обратного вызова помещается сюда
-                            });
-                        </pre>
+$.get('file.php',  data,  function(data,status)  {
+    //Код функции обратного вызова помещается сюда
+});
+            </pre>
             <!--                        ---->
             <h5>Пример запроса</h5>
-            <pre class="brush: jscript">
-                            $.post('/handlers/mailchimp_subscription.php', {"email": email, "subscribeForm": "Ok"}, function (data) {
-                            var answer = JSON.parse(data);
-                        </pre>
+            <pre data-enlighter-language="javascript">
+$.post('/handlers/mailchimp_subscription.php', {"email": email, "subscribeForm": "Ok"}, function (data) {
+var answer = JSON.parse(data);
+            </pre>
             <div class="card-panel">
-                <b>/handlers/mailchimp_subscription.php</b> - файл которому отправляются данные для
-                обработки<br>
-                <b>"email": email и "subscribeForm": "Ok"</b> - в кавычках название переменных, через <b>:</b>
-                их
-                значение<br>
-                <b>function (data)</b> - функция обратного вызова, в ней выполняем операции с даннми что вернет
-                хендлер
+                <b>/handlers/mailchimp_subscription.php</b> - файл которому отправляются данные для обработки<br>
+                <b>"email": email и "subscribeForm": "Ok"</b> - в кавычках название переменных, через <b>:</b>их значение<br>
+                <b>function (data)</b> - функция обратного вызова, в ней выполняем операции с даннми что вернет хендлер
                 <b>data</b> - переменная в которой находится информация-ответ от хендлера, для того что бы в
-                него
-                в него попадала информация в зхендлере необходимо вызвать вывод этой информации
+                него в него попадала информация в зхендлере необходимо вызвать вывод этой информации
                 (<b>echo</b>)<br>
                 <b>JSON.parse(data)</b> - функция преобразовывающая JSON в массив<br>
             </div>
-            <pre class="brush: jscript">
-                            $(function () {
-                                $('#subscribeForm button').click(function(evt){
+            <pre data-enlighter-language="javascript">
+$(function () {
+    $('#subscribeForm button').click(function(evt){
 
-                                    //Отключаем обычное поведение
-                                    evt.preventDefault();
+        //Отключаем обычное поведение
+        evt.preventDefault();
 
-                                    // var form_data = $("#subscribeForm").serializeArray;
-                                    //serializeArray - возвращает JSON обьект из массива
+        // var form_data = $("#subscribeForm").serializeArray;
+        //serializeArray - возвращает JSON обьект из массива
 
-                                    //Получаем значение поля формы
-                                    var email = $('#subscribeForm-email').val();
+        //Получаем значение поля формы
+        var email = $('#subscribeForm-email').val();
 
-                                    //Выполняем ajax запрос
-                                    $.post('/handlers/mailchimp_subscription.php', {"email": email, "subscribeForm": "Ok"}, function (data) {
-                                        var answerAjax = JSON.parse(data);
+        //Выполняем ajax запрос
+        $.post('/handlers/mailchimp_subscription.php', {"email": email, "subscribeForm": "Ok"}, function (data) {
+            var answerAjax = JSON.parse(data);
 
-                                        /*проверка ответа param @answer[0] - сожержит код ответа от form->validate(0-мыло не валид/1-ок) answer[1]-
-                                        answer[1] содержит текст ответа*/
-                                        if (answerAjax["state"] == "ok") {
-                                            $('#subscribeHeader').slideUp();
-                                            $('#subscribeForm').slideUp();
-                                            $('#ftrTooltip').slideDown().html("<div class='alert-success'>" + answerAjax["message"] + "</div>");
-                                        } else if (answerAjax["state"] == "error") {
-                                            $('#subscribeHeader').slideUp();
-                                            $('#subscribeForm').slideUp();
-                                            $('#ftrTooltip').slideDown().html("<div class='alert-danger'>" + answerAjax["message"] + "</div>");
-                                        }
-                                    });//end post.ajax
-                                });//end click
-                            });//end ready
-                        </pre>
+            /*проверка ответа param @answer[0] - сожержит код ответа от form->validate(0-мыло не валид/1-ок) answer[1]-
+            answer[1] содержит текст ответа*/
+            if (answerAjax["state"] == "ok") {
+                $('#subscribeHeader').slideUp();
+                $('#subscribeForm').slideUp();
+                $('#ftrTooltip').slideDown().html("<div class='alert-success'>" + answerAjax["message"] + "</div>");
+            } else if (answerAjax["state"] == "error") {
+                $('#subscribeHeader').slideUp();
+                $('#subscribeForm').slideUp();
+                $('#ftrTooltip').slideDown().html("<div class='alert-danger'>" + answerAjax["message"] + "</div>");
+            }
+        });//end post.ajax
+    });//end click
+});//end ready
+            </pre>
             <h5>Handler на php</h5>
             <pre class="brush: php">
-                            $form = new MailchimpForm();
+$form = new MailchimpForm();
 
-                            //Проверка формы на корректность и сабмит
-                            if (!$form->isOk()) {
-                                echo json_encode(array("state" => "error", "message" => $form->errors[0]["text"]));
-                                exit();
-                            }
+//Проверка формы на корректность и сабмит
+if (!$form->isOk()) {
+    echo json_encode(array("state" => "error", "message" => $form->errors[0]["text"]));
+    exit();
+}
 
-                            //Выбираем спискок подписки
-                            $mailchimpList = Settings::$region == "US" ? MailChimp_API::EN_FELLOWS : MailChimp_API::RU_FELLOWS;
+//Выбираем спискок подписки
+$mailchimpList = Settings::$region == "US" ? MailChimp_API::EN_FELLOWS : MailChimp_API::RU_FELLOWS;
 
-                            $mailСhimp = new MailChimp_API($_POST['email'], "manual_web");
+$mailСhimp = new MailChimp_API($_POST['email'], "manual_web");
 
-                             if ($mailСhimp->subscribe($mailchimpList, array('double_optin' => false))){
-                                 echo json_encode(array("state" => "ok", "message" => "You have been successfully subscribed to our newsletter!"));
-                             } else {
-                                 echo json_encode(array("state" => "error", "message" => "An error occurred, please try again later"));
-                             }
-                        </pre>
+ if ($mailСhimp->subscribe($mailchimpList, array('double_optin' => false))){
+     echo json_encode(array("state" => "ok", "message" => "You have been successfully subscribed to our newsletter!"));
+ } else {
+     echo json_encode(array("state" => "error", "message" => "An error occurred, please try again later"));
+ }
+            </pre>
             <b>json_encode</b> - возвращает JSON-представление данных. В JS это <b>serializeArray</b>
         </div>
     </li>
-
 </ul>

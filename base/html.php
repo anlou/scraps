@@ -4,8 +4,8 @@
     <li>
         <div class="collapsible-header">Выравниване контейнера по центру</div>
         <div class="collapsible-body">
-            <pre class="brush: html">
-                <div style="display: block; margin: auto"></div>
+            <pre data-enlighter-language="html">
+<div style="display: block; margin: auto"></div>
             </pre>
         </div>
     </li>
@@ -13,23 +13,23 @@
     <li>
         <div class="collapsible-header">Иконка в span блоке</div>
         <div class="collapsible-body">
-            <pre class="brush: html">
-                <span class="caret">Текст</span>
+            <pre data-enlighter-language="html">
+<span class="caret">Текст</span>
             </pre>
-            <pre class="brush: css">
-                //С символом
-                .caret::before {
-                    content: "*";
-                }
+            <pre data-enlighter-language="css">
+//С символом
+.caret::before {
+    content: "*";
+}
 
-                //С иконкой
-                .caret::before {
-                    content: '';
-                    display: inline-block;
-                    height: 1em;
-                    width: 1em;
-                    background-image: url(myicon.png);
-                }
+//С иконкой
+.caret::before {
+    content: '';
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    background-image: url(myicon.png);
+}
             </pre>
         </div>
     </li>
@@ -76,9 +76,9 @@
     <li>
         <div class="collapsible-header">Блок с обводкой</div>
         <div class="collapsible-body">
-                            <pre class="brush: xml">
-                                &lt;fieldset&gt;&lt;legend&gt;Имя поля&lt;/legend&gt;бла бла бла&lt;/fieldset&gt;
-                            </pre>
+            <pre data-enlighter-language="html">
+&lt;fieldset&gt;&lt;legend&gt;Имя поля&lt;/legend&gt;бла бла бла&lt;/fieldset&gt;
+            </pre>
         </div>
     </li>
 
@@ -96,16 +96,16 @@
     <li>
         <div class="collapsible-header">Input type list</div>
         <div class="collapsible-body">
-                        <pre class="brush: xml">
-                            <input id="awardWon" name="awardWon" type="text" list="awards">
-                            <datalist id="awards">
-                                <select>
-                                    <option value="Best Picture"></option>
-                                    <option value="Best Director"></option>
-                                    <option value="Best Adapted Screenplay"></option>
-                                    <option value="Best Original Screenplay"></option>
-                                </select>
-                            </datalist>
+                        <pre data-enlighter-language="html">
+<input id="awardWon" name="awardWon" type="text" list="awards">
+<datalist id="awards">
+    <select>
+        <option value="Best Picture"></option>
+        <option value="Best Director"></option>
+        <option value="Best Adapted Screenplay"></option>
+        <option value="Best Original Screenplay"></option>
+    </select>
+</datalist>
                         </pre>
             <div class="card-panel">
                 Атрибут <b>list</b> и связанный с ним элемент <b>datalist</b>
@@ -158,30 +158,6 @@
             <b>color</b> – цвет<br>
             <b>date</b> – дата<br>
             <b>rage</b> – ползунок ввода<br>
-        </div>
-    </li>
-
-    <li>
-        <div class="collapsible-header">Вывод кода на страницу</div>
-        <div class="collapsible-body">
-                        <pre class="brush: xml">
-                            /*Поделючаем syntaxhighlighter и необходимые интерпритаторы*/
-                            <script src="js/syntaxhighlighter/src/shCore.js"></script>
-                            <script src="js/syntaxhighlighter/scripts/shBrushXml.js"></script>
-                            <script src="js/syntaxhighlighter/scripts/shBrushCss.js"></script>
-                            <script src="js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
-                            <script src="js/syntaxhighlighter/scripts/shBrushPhp.js"></script>
-                            <script>SyntaxHighlighter.all();</script>
-
-                            /*Поделючаем syntaxhighlighter стили*/
-                            <link rel="stylesheet" href="js/syntaxhighlighter/styles/shCore.css">
-                            <link rel="stylesheet" href="js/syntaxhighlighter/styles/shThemeDefault.css">
-
-                            /*Выводимы код заключаем в блоки*/
-                            &lt;pre class=&quot;brush: xml/php/css/jsrcipt&quot;&gt;
-                                code
-                            &lt;/pre&gt;
-                        </pre>
         </div>
     </li>
 </ul>

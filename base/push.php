@@ -6,7 +6,7 @@
     <li>
         <div class="collapsible-header">Написание клиента</div>
         <div class="collapsible-body">
-            <pre class="brush: jscript">
+            <pre data-enlighter-language="php">
 
             </pre>
         </div>

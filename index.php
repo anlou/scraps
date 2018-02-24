@@ -6,14 +6,6 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <!--syntaxhighlighter JS-->
-    <script src="js/syntaxhighlighter/src/shCore.js"></script>
-    <script src="js/syntaxhighlighter/scripts/shBrushXml.js"></script>
-    <script src="js/syntaxhighlighter/scripts/shBrushCss.js"></script>
-    <script src="js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
-    <script src="js/syntaxhighlighter/scripts/shBrushPhp.js"></script>
-    <script src="js/syntaxhighlighter/scripts/shBrushSql.js"></script>
-    <script>SyntaxHighlighter.all();</script>
     <script>
         $(document).ready(function () {
             $('ul.tabs').tabs();
@@ -23,13 +15,13 @@
 
 
     <!-- Include EnlighterJS Styles -->
-    <link rel="stylesheet" type="text/css" href="/EJS/Build/EnlighterJS.min.css" />
+    <link rel="stylesheet" type="text/css" href="/js/EJS/Build/EnlighterJS.min.css" />
 
     <!-- Include MooTools Framework -->
-    <script type="text/javascript" src="/EJS/Resources/MooTools.min.js"></script>
+    <script type="text/javascript" src="/js/EJS/Resources/MooTools.min.js"></script>
 
     <!-- Include EnlighterJS -->
-    <script type="text/javascript" src="/EJS/Build/EnlighterJS.min.js" ></script>
+    <script type="text/javascript" src="/js/EJS/Build/EnlighterJS.min.js" ></script>
 
     <!-- Initialize EnlighterJS -->
     <meta name="EnlighterJS" content="Advanced javascript based syntax highlighting" data-indent="4" data-selector-block="pre" data-selector-inline="code.special" />
@@ -38,9 +30,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!--syntaxhighlighter css-->
-    <link rel="stylesheet" href="js/syntaxhighlighter/styles/shCore.css">
-    <link rel="stylesheet" href="js/syntaxhighlighter/styles/shThemeDefault.css">
 
     <link rel="stylesheet" href="style/style.css">
     <title>Записки программиста</title>

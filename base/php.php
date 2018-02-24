@@ -7,14 +7,14 @@
     <li>
         <div class="collapsible-header">Исключения, PDO</div>
         <div class="collapsible-body">
-            <pre class="brush: php">
-                try {
-                    $pdo = new PDO('mysql:host=localhost; dbname=ijdb', 'ijdbuser', 'Passw0rd'); //делаем что то опасное
-                }
-                catch (PDOException $e) { //тип исключения
-                    $error = $e->GetMessage();
-                    //обрабатываем исключение
-                }
+            <pre data-enlighter-language="php">
+try {
+    $pdo = new PDO('mysql:host=localhost; dbname=ijdb', 'ijdbuser', 'Passw0rd'); //делаем что то опасное
+}
+catch (PDOException $e) { //тип исключения
+    $error = $e->GetMessage();
+    //обрабатываем исключение
+}
             </pre>
         </div>
     </li>
@@ -23,33 +23,33 @@
         <div class="collapsible-header">Циклы, PDO</div>
         <div class="collapsible-body">
             <p>while</p>
-            <pre class="brush: php">
-                while ($row = $result->fetch()) { //метод fetch в конце строки БД выдает false
-                  $jokes[] = $row['joketext'];
-                }
+            <pre data-enlighter-language="php">
+while ($row = $result->fetch()) { //метод fetch в конце строки БД выдает false
+  $jokes[] = $row['joketext'];
+}
             </pre>
             <p>foreach</p>
-            <pre class="brush: php">
-                foreach($massive as $item => $key) { //$massive указывается без []
-                  .....при изменении массива, меняеться только его копия!
-                }
+            <pre data-enlighter-language="php">
+foreach($massive as $item => $key) { //$massive указывается без []
+  .....при изменении массива, меняеться только его копия!
+}
 
-                foreach(&$massive as $item => $key) {
-                  .....при изменении массива, меняеться только его копия!
-                }
+foreach(&$massive as $item => $key) {
+  .....при изменении массива, меняеться только его копия!
+}
 
-                //Пример перебора значений
-                foreach ($result as $row) {
-                    $jokes[] = array(
-                        'id' => $row ['id'],
-                        'text' => $row['text'],
-                        'name' => $row['name'],
-                        'mail' => $row['mail']
-                    );
-                    if ($name == 'Andrey' and $mail == 'x@x.x'){
-                        break;
-                    }
-                }
+//Пример перебора значений
+foreach ($result as $row) {
+    $jokes[] = array(
+        'id' => $row ['id'],
+        'text' => $row['text'],
+        'name' => $row['name'],
+        'mail' => $row['mail']
+    );
+    if ($name == 'Andrey' and $mail == 'x@x.x'){
+        break;
+    }
+}
             </pre>
             <b>break()</b> – команда немедленного выхода из цикла<br>
             <b>continue</b> – команда завершат текущию этерацию цикла и переходит к следующей
@@ -72,23 +72,23 @@
     <li>
         <div class="collapsible-header">Массив $_SERVER</div>
         <div class="collapsible-body">
-                <pre class="brush: php">
-                    $_SERVER ['DOCUMENT_ROOT'] //корень каталога php.
+                <pre data-enlighter-language="php">
+$_SERVER ['DOCUMENT_ROOT'] //корень каталога php.
 
-                    //Подключение db.inc.php
-                    include $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
+//Подключение db.inc.php
+include $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
 
-                    $ip = $_SERVER['REMOTE_ADDR']; // ip пользователя
+$ip = $_SERVER['REMOTE_ADDR']; // ip пользователя
 
-                    $_SERVER['HTTP_USER_AGENT']; // содержит название браузера
+$_SERVER['HTTP_USER_AGENT']; // содержит название браузера
 
-                    //Получение запроса из строки
-                    echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+//Получение запроса из строки
+echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
-                    //Содержит текст строки запроса после ?
-                    $_SERVER['QUARY_STRING']
+//Содержит текст строки запроса после ?
+$_SERVER['QUARY_STRING']
 
-                    $_SERVER['HTTPS'] //Принимает непустое значение, если запрос был произведен через протокол HTTPS.
+$_SERVER['HTTPS'] //Принимает непустое значение, если запрос был произведен через протокол HTTPS.
                 </pre>
         </div>
     </li>
@@ -96,12 +96,12 @@
     <li>
         <div class="collapsible-header">Функции</div>
         <div class="collapsible-body">
-            <pre class="brush: php">
-                function area($width, $height, $select = 0)
-                {
-                    global $pdo; //импортирование глобальной переменной в обл. видимость фунции
-                    return $width * $height;
-                }
+            <pre data-enlighter-language="php">
+function area($width, $height, $select = 0)
+{
+    global $pdo; //импортирование глобальной переменной в обл. видимость фунции
+    return $width * $height;
+}
             </pre>
             <div class="card-panel">
                 <b>return</b> остановка функции и возвращение результата в ее тело.<br>
@@ -110,33 +110,35 @@
                 <br>
             </div>
             <h5>Передача неопределенного числа параметров в функцию:</h5>
-            <pre class="brush: php">function solarWalk(...$planets)</pre>
+            <pre data-enlighter-language="php">function solarWalk(...$planets)</pre>
             <h5>Типизация передаваемых значений в функцию</h5>
-            <pre class="brush: php">function area(int $width, int $height, bool $select = 0) : int</pre>
+            <pre data-enlighter-language="php">function area(int $width, int $height, bool $select = 0) : int</pre>
         </div>
     </li>
 
     <li>
         <div class="collapsible-header">Глобальная переменная, global</div>
         <div class="collapsible-body">
-            <pre class="brush: php">global $pdo;</pre>
+            <pre data-enlighter-language="php">global $pdo;</pre>
             <div class="card-panel">
                 Выражение global, позволяет задать список глобальных переменных, к которым вы хотели бы получить
                 доступ внутри функции (если переменных несколько, они разделяются запятыми). Это называется
                 импортированием переменных. Еще один способ импортировать переменную — использовать массив <b>$GLOBALS</b><br>
             </div>
-            <pre class="brush: php">$result = $GLOBALS[‘pdo’]->query(‘SELECT COUNT(*) FROM joke’);</pre>
+            <pre data-enlighter-language="php">
+$result = $GLOBALS[‘pdo’]->query(‘SELECT COUNT(*) FROM joke’);
+            </pre>
         </div>
     </li>
 
     <li>
         <div class="collapsible-header">Перенаправление</div>
         <div class="collapsible-body">
-                <pre class="brush: php">
-                    echo '&lt;meta http-equiv=&quot;Refresh&quot; content=0; url=&quot;/some/other/script.php&quot;&gt;';
-                    exit();
-                    //или
-                    header("Location: http://other.ru");
+                <pre data-enlighter-language="php">
+echo '&lt;meta http-equiv=&quot;Refresh&quot; content=0; url=&quot;/some/other/script.php&quot;&gt;';
+exit();
+//или
+header("Location: http://other.ru");
                 </pre>
         </div>
     </li>
@@ -227,41 +229,41 @@
                 <b>::</b> - оператор разрешения области видимости, который предворяется или именем класса или ключемвым словом
                 <b>self (echo cls::NAME)</b><br>
             </div>
-            <pre class="brush: php">
-                class shopProduct
-                {
-                    public $title;//доступная переменная
-                    public $sallerName;
-                    private $price;//приватная переменная
-                    public function __construct($title, $sellerName, $price){ // Обьявления конструктора функции
-                        $this->title = $title;
-                        $this->sallerName = $sellerName;
-                        $this->price = $price;
-                    }
-                    function getView(){ // функция класса для вывода инфо о товаре
-                        return "Товар: {$this->title} <br> Продавец: {$this->sallerName} Цена: {$this->price}";
+            <pre data-enlighter-language="php">
+class shopProduct
+{
+    public $title;//доступная переменная
+    public $sallerName;
+    private $price;//приватная переменная
+    public function __construct($title, $sellerName, $price){ // Обьявления конструктора функции
+        $this->title = $title;
+        $this->sallerName = $sellerName;
+        $this->price = $price;
+    }
+    function getView(){ // функция класса для вывода инфо о товаре
+        return "Товар: {$this->title} <br> Продавец: {$this->sallerName} Цена: {$this->price}";
 
-                    }
-                    public function getPrice(){ // публичная функция для возврата цены, т.к.          цена приватна
-                        return $this->price;
-                    }
-                    function __toString(){
-                        return "({$this->re}, {$this->im})";  //
-                    }
-                }
+    }
+    public function getPrice(){ // публичная функция для возврата цены, т.к.          цена приватна
+        return $this->price;
+    }
+    function __toString(){
+        return "({$this->re}, {$this->im})";  //
+    }
+}
 
-                class saller
-                {
-                    function sale(shopProduct $product, $sale){//функция для посчета суммы со скидкой, НАСЛЕДНИК класса shopProduct
-                        return $product->getPrice() * (1-$sale);
-                    }
-                }
+class saller
+{
+    function sale(shopProduct $product, $sale){//функция для посчета суммы со скидкой, НАСЛЕДНИК класса shopProduct
+        return $product->getPrice() * (1-$sale);
+    }
+}
 
-                $product = new shopProduct('питолет ТТ', 'Вася Пупкин', 250);
-                $sale = new saller();
-                echo $product->getView();
-                echo 'Сумма без скидки: ' . $sale->sale($product, 0);
-                echo 'Сумма со скидкой: ' . $sale->sale($product, 0.12);
+$product = new shopProduct('питолет ТТ', 'Вася Пупкин', 250);
+$sale = new saller();
+echo $product->getView();
+echo 'Сумма без скидки: ' . $sale->sale($product, 0);
+echo 'Сумма со скидкой: ' . $sale->sale($product, 0.12);
             </pre>
         </div>
     </li>
@@ -269,38 +271,39 @@
     <li>
         <div class="collapsible-header">Наследие</div>
         <div class="collapsible-body">
-                <pre class="brush: php">
-                    class saller
-                    {
-                        function sale(shopProduct $product, $sale)
-                    }
+                <pre data-enlighter-language="php">
+class saller
+{
+    function sale(shopProduct $product, $sale)
+}
                 </pre>
             Функция <b>sale</b> наследует методы и параментры <b>shopProduct</b>, те которые обьявлены как
             <b>public</b>.<br>
             Для вызова методов из класса родитея, необходимо указать <b>parent::(имя метода)</b>
-            <pre class="brush: php">
-                class shopProduct
-                {
-                public $title;//доступная переменная
-                public $sallerName;
-                private $price;//приватная переменная
-                function __construct($title, $sellerName, $price){ // Обьявления конструктора функции
-                    $this->title = $title;
-                    $this->sallerName = $sellerName;
-                    $this->price = $price;
-                }
+            <pre data-enlighter-language="php">
+class shopProduct
+{
+public $title;//доступная переменная
+public $sallerName;
+private $price;//приватная переменная
+function __construct($title, $sellerName, $price){ // Обьявления конструктора функции
+    $this->title = $title;
+    $this->sallerName = $sellerName;
+    $this->price = $price;
+}
 
-                //Наследования функции конструктора
-                class digitalProduct
-                {
-                    public $type;
-                    public $size;
+//Наследования функции конструктора
+class digitalProduct
+{
+    public $type;
+    public $size;
 
-                    public function __construct($title, $sellerName, $price, $type, $size){
-                        parent::__construct($title, $price);//сначала вызываем родительский метод, потом локальный
-                        $this->type = $type;
-                        $this->size = $size;
-                }
+    public function __construct($title, $sellerName, $price, $type, $size){
+        parent::__construct($title, $price);//сначала вызываем родительский метод, потом локальный
+        $this->type = $type;
+        $this->size = $size;
+    }
+}
             </pre>
         </div>
     </li>

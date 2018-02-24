@@ -5,28 +5,28 @@
     <li>
         <div class="collapsible-header">DeepLink теги</div>
         <div class="collapsible-body">
-            <pre class="brush: jscript">
-                <title>The Rock (1996)</title>
-                <meta property="og:title" content="The Rock" />
-                <meta property="og:type" content="video.movie" />
-                <meta property="og:url" content="http://www.imdb.com/title/tt0117500/" />
-                <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
+            <pre data-enlighter-language="html">
+<title>The Rock (1996)</title>
+<meta property="og:title" content="The Rock" />
+<meta property="og:type" content="video.movie" />
+<meta property="og:url" content="http://www.imdb.com/title/tt0117500/" />
+<meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
             </pre>
             <h5>
                 DeepLink теги c AppLink
             </h5>
-            <pre class="brush: jscript">
-                <title>The Rock (1996)</title>
-                <meta property="og:title" content="The Rock" />
-                <meta property="og:type" content="video.movie" />
-                <meta property="og:url" content="http://www.imdb.com/title/tt0117500/" />
-                <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
-                <meta property="al:ios:app_store_id" content="342792525" />
-                <meta property="al:ios:url" content="imdb://title/tt0117500" />
-                <meta property="al:ios:app_name" content="IMDb Movies & TV" />
-                <meta property="al:android:package" content="com.imdb.mobile" />
-                <meta property="al:android:url" content="imdb://title/tt0117500" />
-                <meta property="al:android:app_name" content="IMDb Movies & TV" /> ...
+            <pre data-enlighter-language="html">
+<title>The Rock (1996)</title>
+<meta property="og:title" content="The Rock" />
+<meta property="og:type" content="video.movie" />
+<meta property="og:url" content="http://www.imdb.com/title/tt0117500/" />
+<meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
+<meta property="al:ios:app_store_id" content="342792525" />
+<meta property="al:ios:url" content="imdb://title/tt0117500" />
+<meta property="al:ios:app_name" content="IMDb Movies & TV" />
+<meta property="al:android:package" content="com.imdb.mobile" />
+<meta property="al:android:url" content="imdb://title/tt0117500" />
+<meta property="al:android:app_name" content="IMDb Movies & TV" />
             </pre>
             <div class="card-panel">
                 <b>"og:locale"</b> — указывает локализацию (язык сайта), можно использовать значение "ru_RU" по умолчанию.<br>
