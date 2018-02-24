@@ -1,0 +1,45 @@
+body {
+    background-image: url("/img/bg.jpg");
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #607d8b;
+    margin-top: 40px;
+}
+
+b {
+    color: #069;
+}
+
+div.card-panel {
+    width: 100%;
+    font-size: 16px;
+}
+
+div .col active {
+    width: 100%;
+}
+
+.wrapper {
+    width: 85%;
+    margin: auto;
+}
+
+ul.tabs {
+    background: none;
+}
+
+.collapsible-header:not(".active") {
+    width: 250%;
+}
+
+.collapsible-header, .collapsible-body, .col {
+    width: 100%;
+}
+.link{
+    margin-bottom: 25px;
+}
+.link a{
+    margin-right: 25px;
+}

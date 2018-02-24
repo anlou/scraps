@@ -20,6 +20,20 @@
             $('.collapsible').collapsible();
         });
     </script>
+
+
+    <!-- Include EnlighterJS Styles -->
+    <link rel="stylesheet" type="text/css" href="/EJS/Build/EnlighterJS.min.css" />
+
+    <!-- Include MooTools Framework -->
+    <script type="text/javascript" src="/EJS/Resources/MooTools.min.js"></script>
+
+    <!-- Include EnlighterJS -->
+    <script type="text/javascript" src="/EJS/Build/EnlighterJS.min.js" ></script>
+
+    <!-- Initialize EnlighterJS -->
+    <meta name="EnlighterJS" content="Advanced javascript based syntax highlighting" data-indent="4" data-selector-block="pre" data-selector-inline="code.special" />
+
     <!--Materialize-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -28,49 +42,7 @@
     <link rel="stylesheet" href="js/syntaxhighlighter/styles/shCore.css">
     <link rel="stylesheet" href="js/syntaxhighlighter/styles/shThemeDefault.css">
 
-    <!--STYLE-->
-    <style>
-        body {
-            background-image: url("img/bg.jpg");
-            font-family: GillSans, Calibri, Trebuchet, sans-serif;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            color: #607d8b;
-            margin-top: 40px;
-        }
-
-        b {
-            color: #069;
-        }
-
-        div.card-panel {
-            width: 100%;
-            font-size: 16px;
-        }
-
-        div .col active {
-            width: 100%;
-        }
-
-        .wrapper {
-            width: 85%;
-            margin: auto;
-        }
-
-        ul.tabs {
-            background: none;
-        }
-
-        .collapsible-header:not(".active") {
-            width: 250%;
-        }
-
-        .collapsible-header, .collapsible-body, #html, #css, #php, #jq, #js, #ajax, #curl, #twig, #mysql, #push, #git {
-            width: 100%;
-        }
-    </style>
-
+    <link rel="stylesheet" href="style/style.css">
     <title>Записки программиста</title>
 </head>
 <body>
@@ -88,6 +60,7 @@
                 <li class="tab"><a href="#curl">cURL</a></li>
                 <li class="tab"><a href="#twig">TWIG</a></li>
                 <li class="tab"><a href="#push">Web PUSH</a></li>
+                <li class="tab"><a href="#dlink">DeepLink</a></li>
                 <li class="tab"><a href="#git">git</a></li>
             </ul>
         </div>
@@ -126,6 +99,10 @@
 
         <div id="push" class="col">
             <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/push.php"?>
+        </div>
+
+        <div id="dlink" class="col">
+            <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/deep_link.php"?>
         </div>
 
         <div id="git" class="col">

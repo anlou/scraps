@@ -4,11 +4,37 @@
     <li>
         <div class="collapsible-header">Выравниване контейнера по центру</div>
         <div class="collapsible-body">
-                        <pre class="brush: html">
-                            <div style="display: block; margin: auto"></div>
-                        </pre>
+            <pre class="brush: html">
+                <div style="display: block; margin: auto"></div>
+            </pre>
         </div>
     </li>
+
+    <li>
+        <div class="collapsible-header">Иконка в span блоке</div>
+        <div class="collapsible-body">
+            <pre class="brush: html">
+                <span class="caret">Текст</span>
+            </pre>
+            <pre class="brush: css">
+                //С символом
+                .caret::before {
+                    content: "*";
+                }
+
+                //С иконкой
+                .caret::before {
+                    content: '';
+                    display: inline-block;
+                    height: 1em;
+                    width: 1em;
+                    background-image: url(myicon.png);
+                }
+            </pre>
+        </div>
+    </li>
+
+
 
     <li>
         <div class="collapsible-header">Теги для списков</div>

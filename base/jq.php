@@ -1,6 +1,8 @@
 <!--JQ-->
 <ul class="collapsible popout" data-collapsible="accordion">
-
+    <div class="link">
+        <a href="https://jquery-docs.ru/">jquery-docs.ru</a>
+    </div>
     <li>
         <div class="collapsible-header">Базовые функции jQuary</div>
         <div class="collapsible-body">

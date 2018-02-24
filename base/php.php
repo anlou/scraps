@@ -1,121 +1,56 @@
 <!--php-->
 <ul class="collapsible popout" data-collapsible="accordion">
-
+    <div class="link">
+        <a href="http://php.net/manual/ru/langref.php">Справочник языка</a>
+        <a href="http://php.net/manual/ru/funcref.php">Справочник функций</a>
+    </div>
     <li>
-        <div class="collapsible-header">Работа с передачей переменных</div>
+        <div class="collapsible-header">Исключения, PDO</div>
         <div class="collapsible-body">
-                        <pre class="brush: php">
-                            ...name.php?name=Андрей
-
-                            $name = $_GET['name']; /*Массив $_GET, содержит переменные из строки запроса*/
-                            $name = $_POST['name']; /*Массив $_POST содержит переменные переданные методом post(скрытым)*/
-                            $name = $_REQUEST['name']; /*Массив $_REQUEST содержит переменные из массива $_GET и $_POST*/
-                        </pre>
-        </div>
-    </li>
-
-    <li>
-        <div class="collapsible-header">Условия</div>
-        <div class="collapsible-body">
-                        <pre class="brush: php">
-                            if ($firstname == 'Andrey' and $lastname == 'Lutogin' or $firstname == 'u_GOD') {
-                                //
-                            } else {
-                                //
-                            }
-                        </pre>
-            <p>Switch</p>
             <pre class="brush: php">
-                            switch ($i) {
-                            case 0:
-                                echo "i равно 0";
-                                break;
-                            case 1:
-                                echo "i равно 1";
-                                break;
-                            case 2:
-                                echo "i равно 2";
-                                break;
-                            default:
-                                echo "i не равно 0, 1 или 2";
-                            }
-                        </pre>
-            <p>Тернарный оператор</p>
-            <pre class="brush: php">
-                            $item = условие/переменная ? <выполняется если TRUE> : <выполняется если FALSE>
-                            $answer = $first ? $second : $third
-                        </pre>
+                try {
+                    $pdo = new PDO('mysql:host=localhost; dbname=ijdb', 'ijdbuser', 'Passw0rd'); //делаем что то опасное
+                }
+                catch (PDOException $e) { //тип исключения
+                    $error = $e->GetMessage();
+                    //обрабатываем исключение
+                }
+            </pre>
         </div>
     </li>
 
     <li>
-        <div class="collapsible-header">Исключения</div>
-        <div class="collapsible-body">
-                    <pre class="brush: php">
-                        try {
-                            $pdo = new PDO('mysql:host=localhost; dbname=ijdb', 'ijdbuser', 'Passw0rd'); //делаем что то опасное
-                        }
-                        catch (PDOException $e) { //тип исключения
-                            $error = $e->GetMessage();
-                            //обрабатываем исключение
-                        }
-                    </pre>
-        </div>
-    </li>
-
-    <li>
-        <div class="collapsible-header">Циклы</div>
+        <div class="collapsible-header">Циклы, PDO</div>
         <div class="collapsible-body">
             <p>while</p>
             <pre class="brush: php">
-                        while($count <= 10) { //выполняется пока в условии TRUE
-                          команды;
-                        }
-
-                        //конструкция endwhile
-                        while($count <= 10):
-                            команды;
-                        endwhile;
-
-                        //цикл минимум одной итерации
-                        do {
-                          команды;
-                        } while(условие)
-
-                        //использование с PDO
-                        while ($row = $result->fetch()) { //метод fetch в конце строки БД выдает false
-                          $jokes[] = $row['joketext'];
-                        }
-                    </pre>
-            <p>for</p>
-            <pre class="brush: php">
-                        for($count = 1; $count <= 10; ++$count) {
-                          echo "$count ";
-                        }
-                    </pre>
+                while ($row = $result->fetch()) { //метод fetch в конце строки БД выдает false
+                  $jokes[] = $row['joketext'];
+                }
+            </pre>
             <p>foreach</p>
             <pre class="brush: php">
-                        foreach($massive as $item => $key) { //$massive указывается без []
-                          .....при изменении массива, меняеться только его копия!
-                        }
+                foreach($massive as $item => $key) { //$massive указывается без []
+                  .....при изменении массива, меняеться только его копия!
+                }
 
-                        foreach(&$massive as $item => $key) {
-                          .....при изменении массива, меняеться только его копия!
-                        }
+                foreach(&$massive as $item => $key) {
+                  .....при изменении массива, меняеться только его копия!
+                }
 
-                        //Пример перебора значений
-                        foreach ($result as $row) {
-                            $jokes[] = array(
-                                'id' => $row ['id'],
-                                'text' => $row['text'],
-                                'name' => $row['name'],
-                                'mail' => $row['mail']
-                            );
-                            if ($name == 'Andrey' and $mail == 'x@x.x'){
-                                break;
-                            }
-                        }
-                    </pre>
+                //Пример перебора значений
+                foreach ($result as $row) {
+                    $jokes[] = array(
+                        'id' => $row ['id'],
+                        'text' => $row['text'],
+                        'name' => $row['name'],
+                        'mail' => $row['mail']
+                    );
+                    if ($name == 'Andrey' and $mail == 'x@x.x'){
+                        break;
+                    }
+                }
+            </pre>
             <b>break()</b> – команда немедленного выхода из цикла<br>
             <b>continue</b> – команда завершат текущию этерацию цикла и переходит к следующей
         </div>
@@ -131,59 +66,52 @@
                 отображает сообщение об ошибке, и скрипт останавливается!<br>
                 <b>require_once/include_once</b> подключить один раз, если файл уже подключен, тогда игнорируется!
             </div>
-            <pre class="brush: php">
-                            if ($firstname == 'Andrey' and $lastname == 'Lutogin' or $firstname == 'u_GOD') {
-                                //
-                            } else {
-                                //
-                            }
-                        </pre>
         </div>
     </li>
 
     <li>
         <div class="collapsible-header">Массив $_SERVER</div>
         <div class="collapsible-body">
-                    <pre class="brush: php">
-                        $_SERVER ['DOCUMENT_ROOT'] //корень каталога php.
+                <pre class="brush: php">
+                    $_SERVER ['DOCUMENT_ROOT'] //корень каталога php.
 
-                        //Подключение db.inc.php
-                        include $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
+                    //Подключение db.inc.php
+                    include $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
 
-                        $ip = $_SERVER['REMOTE_ADDR']; // ip пользователя
+                    $ip = $_SERVER['REMOTE_ADDR']; // ip пользователя
 
-                        $_SERVER['HTTP_USER_AGENT']; // содержит название браузера
+                    $_SERVER['HTTP_USER_AGENT']; // содержит название браузера
 
-                        //Получение запроса из строки
-                        echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                    //Получение запроса из строки
+                    echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
-                        //Содержит текст строки запроса после ?
-                        $_SERVER[‘QUARY_STRING’]
-                    </pre>
+                    //Содержит текст строки запроса после ?
+                    $_SERVER['QUARY_STRING']
+
+                    $_SERVER['HTTPS'] //Принимает непустое значение, если запрос был произведен через протокол HTTPS.
+                </pre>
         </div>
     </li>
 
     <li>
         <div class="collapsible-header">Функции</div>
         <div class="collapsible-body">
-                    <pre class="brush: php">
-                        function area($width, $height, $select = 0)
-                        {
-                            global $pdo; //импортирование глобальной переменной в обл. видимость фунции
-                            return $width * $height;
-                        }
-                    </pre>
-            <b>return</b> остановка функции и возвращение результата в ее тело.<br>
-            При передачи переменной в функцию, и ее изменении, меняеться не оригинал а ее копия, что бы
-            функция могла редактировать оригинал переменной, в ее обьявлении необходим <b>&</b> : <b>function
-                test(&$var) -
-                &$var</b> – ссылка на переменную<br>
-            <br>
-            Передача неопределенного числа параметров в функцию:<br>
-
+            <pre class="brush: php">
+                function area($width, $height, $select = 0)
+                {
+                    global $pdo; //импортирование глобальной переменной в обл. видимость фунции
+                    return $width * $height;
+                }
+            </pre>
+            <div class="card-panel">
+                <b>return</b> остановка функции и возвращение результата в ее тело.<br>
+                При передачи переменной в функцию, и ее изменении, меняеться не оригинал а ее копия, что бы
+                функция могла редактировать оригинал переменной, в ее обьявлении необходим <b>&</b> : <b>function test(&$var) - &$var</b> – ссылка на переменную<br>
+                <br>
+            </div>
+            <h5>Передача неопределенного числа параметров в функцию:</h5>
             <pre class="brush: php">function solarWalk(...$planets)</pre>
-            <br>
-            Типизация передаваемых значений в функцию:<br>
+            <h5>Типизация передаваемых значений в функцию</h5>
             <pre class="brush: php">function area(int $width, int $height, bool $select = 0) : int</pre>
         </div>
     </li>
@@ -204,12 +132,12 @@
     <li>
         <div class="collapsible-header">Перенаправление</div>
         <div class="collapsible-body">
-                        <pre class="brush: php">
-                            echo '&lt;meta http-equiv=&quot;Refresh&quot; content=0; url=&quot;/some/other/script.php&quot;&gt;';
-                            exit();
-                            //или
-                            header("Location: http://other.ru");
-                        </pre>
+                <pre class="brush: php">
+                    echo '&lt;meta http-equiv=&quot;Refresh&quot; content=0; url=&quot;/some/other/script.php&quot;&gt;';
+                    exit();
+                    //или
+                    header("Location: http://other.ru");
+                </pre>
         </div>
     </li>
 
@@ -230,24 +158,16 @@
                 <b>[ ]</b> - внутри этих скобок перечисляются символы, любой один символ из которых может стоять
                 на данном месте. Это называется символьным классом. Спецсимволы, написанные в [] ведут себя немного по-другому.<br>
                 Пример: <b>'/pat[aoe]rn/'</b> - под соответствие попадут только строки, содержащие patarn, patorn или patern.<br>
-                <b>|</b> - Или. Пример ниже.<br>
+                <b>|</b> - Или. используется в подмаске и симваольный класс.<br>
                 <b>( )</b> - подмаска.<br>
                 <b>?</b> - одно или ноль вхождений предшествующего символа или подмаски.<br>
                 <b>*</b> - любое количество вхождений предшествующего символа или подмаски. В том числе и ноль.<br>
                 <b>+</b> - одно или более вхождений.<br>
-                Пример: <b>'/as+(es|du)?.*r/'</b> - Буква а, потом одна или больше букв s, после этого сочетание es
-                или du может быть один раз, а может м ни разу, потом любое количество любых символов и буква r.<br>
-                Здесь же скажу про еще одно значения символа <b>?</b>. Метасимвол звездочка по умолчанию жадный
-                (и другие тоже). Это значит, что в нашем примере вот этой части <b>'.*r'</b> будет соответствовать, например,
-                подстрока asdrfsrsfdr. Как видно, до последней буквы r в нее попало еще две. Вот эту жадность можно
-                выключить. Т.е. шаблон станет соответствовать только подстроке asdr. До первого r. Для этого надо в до того места где
-                необходимо отключить жадность поставит модификатор (?U). Вот еще одно применение символам <b>? и ()</b>.<br>
-                <b>{a,b}</b> - количество вхождений предшествующего символа или подмаски от а до б. Если б не
-                указан, считается, что верхней границы нет. Например, <b>*</b> - то же самое, что {0,}. ? - то же, что {0,1}. {5,7} - 5,6 или 7 повторений.<br>
-            </div>
+                <b>{i,n}</b> - от i до n количество вхождений вхождений предшествующего символа или подмаски, .<br>
 
+            </div>
+            <h5>Спецсимволы внутри символьного класса</h5>
             <div class="card-panel">
-                <h5>Спецсимволы внутри символьного класса</h5>
                 <b>^</b> - отрицание.
                 Пример: <b>[^da]</b> - соответствует любому символу кроме d и a.<br>
                 Пример: <b>[^^]</b> - соответствует любому символу кроме <b>^</b>.
@@ -281,25 +201,14 @@
                 <b>\xHH</b> - символ с шестнадцатиричным кодом HH. x - это именно буква икс.<br>
                 <b>\DDD</b> - символ с восьмиричным кодом DDD. Или ссылка на подмаску.<br>
             </div>
-    </li>
 
-    <li>
-        <div class="collapsible-header">Маст кнов</div>
-        <div class="collapsible-body">
-            <b>each()</b> -  возвращает текущую пару ключ/значение из массива array и смещает его указатель.
-            Эта пара возвращается в виде массива из четырёх элементов, со следующими ключами: 0, 1, key и value.
-            Элементы 0 и key содержат ключ элемента массива, а элементы 1 и value содержат его значение.<br>
-            <b>define ("CONSTANT", "Hello world.")</b> - обьявление константы<br>
-            <b>explode</b> - разбивает строку в массив с помощью разделителя<br>
-            <b>$a = &$b</b> – жесткая ссылка, $a всегда будет равна $b и наоборот, переменные становятся синонимами<br>
-            <b>system()</b> – функция запуска команд ОС
-            <pre class="brush: php">system(“rundll32.exe user32.dll LockWorkStation”)</pre>
-            <b>serialize($obj)</b> – запечатывает обьект в стоку <b>unserialize($obj)</b> – выгрузка обьекта из строки<br>
-            <b>fopen</b>– команда открытия файла, адрес пишется только чекрез обратный слешь " / " fclose($file) – закрытие файла<br>
-            <pre class="brush: php">$file = fopen(“/folder/file.txt”, “rt”-чтение, “rw”-запись) or die(‘Текст ошибки’)</pre>
-            <b>strtotime($date)</b> – преобразует текст в стампдату<br>
-            <b>serialize</b> - генерирует пригодное для хранения представление переменной. Для превращения сериализованной строки обратно в PHP-значение, используйте функцию <b>unserialize()</b>.<br>
-        </div>
+            <h5>Утверждения</h5>
+            <div class="card-panel">
+                <b>?!(...)</b> - утверждающий НЕТ.<br>
+                <b>[^\s]*q(?!werty)[^\s]*</b> - найти в этом документе каждое слово, включающее букву “q”, за которой НЕ следует “werty”.<br>
+                Приведенный выше код начинается с поиска любых символов, кроме пробела ([^\s]*), за которыми следует q. Затем парсер достигает «смотрящего вперед» утверждения. Это автоматически делает предшествующий элемент (символ, группу или символьный класс) условным — он будет соответствовать шаблону, только если утверждение верно. В нашем случае, утверждение является отрицательным (?!), т. е. оно будет верным, если то, что в нем ищется, не будет найдено.<br>
+            </div>
+            <a href="http://www.exlab.net/files/tools/sheets/regexp/regexp.pdf">шпаргалка</a>
     </li>
 
     <li>
@@ -319,80 +228,80 @@
                 <b>self (echo cls::NAME)</b><br>
             </div>
             <pre class="brush: php">
-                            class shopProduct
-                            {
-                                public $title;//доступная переменная
-                                public $sallerName;
-                                private $price;//приватная переменная
-                                public function __construct($title, $sellerName, $price){ // Обьявления конструктора функции
-                                    $this->title = $title;
-                                    $this->sallerName = $sellerName;
-                                    $this->price = $price;
-                                }
-                                function getView(){ // функция класса для вывода инфо о товаре
-                                    return "Товар: {$this->title} <br> Продавец: {$this->sallerName} Цена: {$this->price}";
+                class shopProduct
+                {
+                    public $title;//доступная переменная
+                    public $sallerName;
+                    private $price;//приватная переменная
+                    public function __construct($title, $sellerName, $price){ // Обьявления конструктора функции
+                        $this->title = $title;
+                        $this->sallerName = $sellerName;
+                        $this->price = $price;
+                    }
+                    function getView(){ // функция класса для вывода инфо о товаре
+                        return "Товар: {$this->title} <br> Продавец: {$this->sallerName} Цена: {$this->price}";
 
-                                }
-                                public function getPrice(){ // публичная функция для возврата цены, т.к.          цена приватна
-                                    return $this->price;
-                                }
-                                function __toString(){
-                                    return "({$this->re}, {$this->im})";  //
-                                }
-                            }
+                    }
+                    public function getPrice(){ // публичная функция для возврата цены, т.к.          цена приватна
+                        return $this->price;
+                    }
+                    function __toString(){
+                        return "({$this->re}, {$this->im})";  //
+                    }
+                }
 
-                            class saller
-                            {
-                                function sale(shopProduct $product, $sale){//функция для посчета суммы со скидкой, НАСЛЕДНИК класса shopProduct
-                                    return $product->getPrice() * (1-$sale);
-                                }
-                            }
+                class saller
+                {
+                    function sale(shopProduct $product, $sale){//функция для посчета суммы со скидкой, НАСЛЕДНИК класса shopProduct
+                        return $product->getPrice() * (1-$sale);
+                    }
+                }
 
-                            $product = new shopProduct('питолет ТТ', 'Вася Пупкин', 250);
-                            $sale = new saller();
-                            echo $product->getView();
-                            echo 'Сумма без скидки: ' . $sale->sale($product, 0);
-                            echo 'Сумма со скидкой: ' . $sale->sale($product, 0.12);
-                        </pre>
+                $product = new shopProduct('питолет ТТ', 'Вася Пупкин', 250);
+                $sale = new saller();
+                echo $product->getView();
+                echo 'Сумма без скидки: ' . $sale->sale($product, 0);
+                echo 'Сумма со скидкой: ' . $sale->sale($product, 0.12);
+            </pre>
         </div>
     </li>
 
     <li>
         <div class="collapsible-header">Наследие</div>
         <div class="collapsible-body">
-                        <pre class="brush: php">
-                            class saller
-                            {
-                                function sale(shopProduct $product, $sale)
-                            }
-                        </pre>
+                <pre class="brush: php">
+                    class saller
+                    {
+                        function sale(shopProduct $product, $sale)
+                    }
+                </pre>
             Функция <b>sale</b> наследует методы и параментры <b>shopProduct</b>, те которые обьявлены как
             <b>public</b>.<br>
             Для вызова методов из класса родитея, необходимо указать <b>parent::(имя метода)</b>
             <pre class="brush: php">
-                            class shopProduct
-                            {
-                            public $title;//доступная переменная
-                            public $sallerName;
-                            private $price;//приватная переменная
-                            function __construct($title, $sellerName, $price){ // Обьявления конструктора функции
-                                $this->title = $title;
-                                $this->sallerName = $sellerName;
-                                $this->price = $price;
-                            }
+                class shopProduct
+                {
+                public $title;//доступная переменная
+                public $sallerName;
+                private $price;//приватная переменная
+                function __construct($title, $sellerName, $price){ // Обьявления конструктора функции
+                    $this->title = $title;
+                    $this->sallerName = $sellerName;
+                    $this->price = $price;
+                }
 
-                            //Наследования функции конструктора
-                            class digitalProduct
-                            {
-                                public $type;
-                                public $size;
+                //Наследования функции конструктора
+                class digitalProduct
+                {
+                    public $type;
+                    public $size;
 
-                                public function __construct($title, $sellerName, $price, $type, $size){
-                                    parent::__construct($title, $price);//сначала вызываем родительский метод, потом локальный
-                                    $this->type = $type;
-                                    $this->size = $size;
-                            }
-                        </pre>
+                    public function __construct($title, $sellerName, $price, $type, $size){
+                        parent::__construct($title, $price);//сначала вызываем родительский метод, потом локальный
+                        $this->type = $type;
+                        $this->size = $size;
+                }
+            </pre>
         </div>
     </li>
 
