@@ -1,4 +1,7 @@
-<!--JQ-->
+
+<div class="link">
+    <a href="https://jqueryui.com/draggable/">JQ UI</a>
+</div>
 <ul class="collapsible popout" data-collapsible="accordion">
     <div class="link">
         <a href="https://jquery-docs.ru/">jquery-docs.ru</a>
