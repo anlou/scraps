@@ -1,5 +1,8 @@
 <ul class="collapsible popout" data-collapsible="accordion">
     <div class="link">
+        <a href="https://github.com/anlou/scraps.git">Опции curl_setopt</a>
+    </div>
+    <div class="link">
         <a href="http://php.net/manual/ru/book.curl.php">Клиентская библиотека работы с URL</a>
     </div>
     <li>
