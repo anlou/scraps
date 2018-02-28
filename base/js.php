@@ -262,6 +262,12 @@ function compareNumeric(a, b) {
     if (a < b) return -1;
 }
 
+//или более просто
+
+function compareNumeric(a, b) {
+    return a - b;
+}
+
 var arr = [ 1, 2, 15 ];
 
 arr.sort(compareNumeric);
