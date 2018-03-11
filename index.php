@@ -51,6 +51,7 @@
                 <li class="tab"><a href="#push">Web PUSH</a></li>
                 <li class="tab"><a href="#dlink">DeepLink</a></li>
                 <li class="tab"><a href="#git">git</a></li>
+                <li class="tab"><a href="#laravel">laravel</a></li>
             </ul>
         </div>
 
@@ -96,6 +97,10 @@
 
         <div id="git" class="col">
             <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/git.php"?>
+        </div>
+
+        <div id="laravel" class="col">
+		    <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/laravel.php"?>
         </div>
 
     </div>
