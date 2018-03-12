@@ -53,8 +53,14 @@ Route::get('/', 'uses' => 'HomeController@index', 'as' => 'home')
 //В роутах можно указывать в пути переменную, формата:
 Route::get('massage/{id}/edit', ['uses' => 'HomeController@edit', 'as' => 'massage.edit'])->where(['id' => '[0-9]+']);
 //where создает правило для переменной id, в данном примере id возможна только цифра.
+//Функиця <b>dd($id)</b> => выводит дамп переменной $id
+
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/register', function () {
+        return view('auth.register');
+    });
+});
 			</pre>
-            Функиця <b>dd($id)</b> => выводит дамп переменной $id
 		</div>
 	</li>
 
