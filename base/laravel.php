@@ -187,7 +187,7 @@ Schema::table('massage', function (Blueprint $table) {
             </pre>
             <p>Для доступа к данным с БД</p>
             <pre data-enlighter-language="php">
-//пример с роута
+//пример с роута, в $item получаем всю таблицу
 $item = DB::table('name_table')->get();
 
 //далее, например в view
