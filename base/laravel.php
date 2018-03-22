@@ -46,8 +46,25 @@ Route::any('/', function () {
 Route::get('/', 'ControllerName@Method')
 Route::get('/', 'HomeController@index')
 
-//Или передавать массив
+//Или передавать массив в наш шаблон view
 Route::get('/', 'uses' => 'HomeController@index', 'as' => 'home')
+
+//Или передаем переменные
+Route::get('/', function() {
+    return view('name_template' , [
+        'item' => 'value',
+        'item2' => 'value2'
+    ]);
+});
+
+Route::get('/', function() {
+    return view('name_template')->with('item', 'value');
+});
+
+Route::get('/', function() {
+    $item = value;
+    return view('name_template', compact('item'));
+});
 //Что значит что должен отработаь метод index контролелра HomeController
 
 //В роутах можно указывать в пути переменную, формата:
@@ -121,14 +138,14 @@ return view ('page.massages.index')->with('title', 'Гостевая книга'
     </li>
 
     <li>
-        <div class="collapsible-header">Миграции</div>
+        <div class="collapsible-header">Миграции и работа с БД</div>
         <div class="collapsible-body">
             <a class="link" href="https://laravel.com/docs/5.6/migrations#generating-migrations">Офф. документация</a>
             <pre data-enlighter-language="php">
 php artisan make:migration --help
 
 //Создание миграции
-php artisan make:migration create_massage_table --create
+php artisan make:migration create_massage_table --create=имя_для_таблици
 
 php artisan make:migration --table=имя_таблицы --path=путь/к/миграции имя_миграции
 //--table=имя_таблицы указывается для создание конструктора под нужную таблицу
@@ -138,6 +155,9 @@ php artisan migrate --path=путь/к/миграциям
 
 //Откат всех миграции
 php artisan migrate:reset
+
+//Удоление всех БД и создание новых
+php artisan migrate:refresh
 
 //Откат последней миграции, или указание кол-ва миграций
 php artisan migrate:rollback --step=5
@@ -153,10 +173,30 @@ Schema::create('massage', function (Blueprint $table) {
 });
             </pre>
             <p>При изменении таблици в файле миграции указывается конструкция:</p>
+            <pre data-enlighter-language="php">
 Schema::table('massage', function (Blueprint $table) {
     $table->string('name', 40);
             ...
 });
+            </pre>
+            <p>Для доступа к данным с БД</p>
+            <pre data-enlighter-language="php">
+//пример с роута
+$item = DB::table('name_table')->get();
+
+//далее, например в view
+<ul>
+    @foreach ($tasks as $task)
+    <li>{{ $task->name_field_in_table }}</li>
+    @endforeach
+</ul>
+
+//Пример роута который передает инфу с БД по переданому в роут id
+Route::get('/tasks/{id}', function($id) {
+    $task = DB::table('name_table')->find($id);
+    return view('welcome')->with('task', $task);
+});
+            </pre>
         </div>
     </li>
 
