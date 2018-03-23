@@ -2,7 +2,7 @@
 <ul class="collapsible popout" data-collapsible="accordion">
 
                 <li>
-                    <div class="collapsible-header">Отображение на всю ширину</div>
+                    <div class="collapsible-header">Отображение на всю ширину устройства</div>
                     <div class="collapsible-body">
                             <pre data-enlighter-language="html">
 <meta name="viewport" content="width=device-width">
@@ -337,22 +337,65 @@ span-class:nth-of-type(-2n+3) {
                 <li>
                     <div class="collapsible-header">Flexbox</div>
                     <div class="collapsible-body">
+                        <a href="http://html5.by/blog/flexbox/">flexbox в примере</a>
+                        <div class="card-panel">
+                            <p>Flexbox определяет набор CSS свойств для контейнера (flex-контейнер) и его дочерних элементов (flex-блоков). Первое, что нужно сделать – это указать контейнеру <b>display:flex</b> или <b>display:inline-flex</b></p>
+                        </div>
+                        <pre data-enlighter-language="html">
+<div class="my-flex-container">
+    <div class="my-flex-block">item1</div>
+    <div class="my-flex-block">item2</div>
+    <div class="my-flex-block">item3</div>
+</div>
+                        </pre>
                         <pre data-enlighter-language="css">
-.CenterMe {
-    /* другие свойства */
+.my-flex-container{
     display: flex;
-    align-items: center;
-    justify-content: center;
+}
                         </pre>
                         <div class="card-panel">
-                            <b>display: flex</b> — простая настройка элемента на его принадлежность к Flexbox (в
-                            противоположность блоку-контейнеру, линейному блоку и т. д.).<br>
-                            <b>align-items</b> — это свойство приводит к выравниванию элементов внутри Flexbox по поперечной
-                            оси (в нашем примере текст выравнивается по вертикали).<br>
-                            <b>justify-content</b> — это свойство задает выравнивание содержимого по центру главной оси. Что
-                            касается строки Flexbox, то об этом свойстве можно думать как о кнопке в текстовом процессоре,
-                            выравнивающей текст по левому или правому краю или по центру<br>
-                            <b>display: inline-flex</b> – отображение в одну строчку.<br>
+                            Одним из основных понятий в fleхbox являются оси.
+                            Главной осью flex-контейнера является направление, в соответствии с которым располагаются все его дочерние элементы.
+                            Поперечной осью называется направление, перпендикулярное главной оси.
+                            Главная ось в ltr локали по умолчанию располагается слева направо. Поперечная – сверху вниз. Направление главной оси flex-контейнера можно задавать, используя базовое css свойство <b>flex-direction</b><br>
+                            <img src="/img/flexbox-main-row-300x300.png" alt="">
+                            <img src="/img/flexbox-main-column-300x300.png" alt="">
+                            <br>
+                            <h5><b>flex-direction</b> – направление главной оси</h5>
+                            Доступные значения flex-direction:
+                            <ul>
+                                <li><b>row</b> (значение по умолчанию) : слева направо (в rtl справа налево)</li>
+                                <li><b>row-reverse</b>: справа налево (в rtl слева направо)</li>
+                                <li><b>column</b>: сверху вниз</li>
+                                <li><b>column-reverse</b>: снизу вверх</li>
+                            </ul>
+
+                            <h5><b>justify-content</b> – выравнивание по главной оси.</h5>
+                            Доступные значения justify-content:
+                            <ul>
+                                <li><b>flex-start</b>(значение по умолчанию) : блоки прижаты к началу главной оси</li>
+                                <li><b>flex-end</b>блоки прижаты к концу главной оси</li>
+                                <li><b>center</b>блоки располагаются в центре главной оси</li>
+                                <li><b>space-between</b>первый блок располагается в начале главной оси, последний блок – в конце, все остальные блоки равномерно распределены в оставшемся пространстве.</li>
+                                <li><b>space-around</b>все блоки равномерно распределены вдоль главной оси, разделяя все свободное пространство поровну.
+                                    flex-justify-content</li>
+                            </ul>
+                            <br>
+                            <img src="/img/flex-justify-content-300x200.png" alt=""><br>
+
+                            <h5><b>align-items</b> – выравнивание по поперечной оси.</h5>
+                            Доступные значения align-items:
+                            <ul>
+                                <li><b>flex-start</b>блоки прижаты к началу поперечной оси</li>
+                                <li><b>flex-end</b>блоки прижаты к концу поперечной оси</li>
+                                <li><b>center</b>блоки располагаются в центре поперечной оси</li>
+                                <li><b>baseline</b>блоки выровнены по их baseline</li>
+                                <li><b>stretch</b>значение по умолчанию) : блоки растянуты, занимая все доступное место по поперечной оси, при этом все же учитываются min-width/max-width, если таковые заданы.</li>
+                            </ul>
+                            <br>
+                            СSS свойства <b>flex-direction</b>, <b>justify-content</b>, <b>align-items</b> должны применяться непосредственно к flex-контейнеру, а не к его дочерним элементам.
+                            <br>
+                            <img src="/img/flex-align-items-300x300.png" alt="">
                         </div>
                     </div>
                 </li>

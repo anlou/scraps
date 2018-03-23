@@ -211,6 +211,19 @@ header("Location: http://other.ru");
                 Приведенный выше код начинается с поиска любых символов, кроме пробела ([^\s]*), за которыми следует q. Затем парсер достигает «смотрящего вперед» утверждения. Это автоматически делает предшествующий элемент (символ, группу или символьный класс) условным — он будет соответствовать шаблону, только если утверждение верно. В нашем случае, утверждение является отрицательным (?!), т. е. оно будет верным, если то, что в нем ищется, не будет найдено.<br>
             </div>
             <a href="http://www.exlab.net/files/tools/sheets/regexp/regexp.pdf">шпаргалка</a>
+
+            <h5>Функции PCRE</h5>
+            <a href="http://php.net/manual/ru/ref.pcre.php">Функции PCRE</a>
+            <ul>
+                <li><b>preg_filter ($pattern, $replacement, $subject)</b>производит поиск и замену по регулярному выражению</li>
+                <li><b>preg_grep ($pattern, $input)</b>возвращает массив вхождений, которые соответствуют шаблону</li>
+                <li><b>int preg_match_all ($pattern, $subject)</b>выполняет глобальный поиск шаблона в строке</li>
+                <li><b>preg_match ($pattern, $subject)</b>выполняет проверку на соответствие регулярному выражению</li>
+                <li><b>preg_replace_callback_array ($patterns_and_callbacks, $subject)</b>выполняет поиск и замену по регулярному выражению с использованием функций обратного вызова</li>
+                <li><b>preg_replace_callback ($pattern, $callback, mixed $subject)</b>выполняет поиск по регулярному выражению и замену с использованием callback-функции</li>
+                <li><b>preg_replace ($pattern, $replacement, $subject)</b>выполняет поиск и замену по регулярному выражению</li>
+                <li><b>preg_split ($pattern, $subject)</b>разбивает строку по регулярному выражению</li>
+            </ul>
     </li>
 
     <li>

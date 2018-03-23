@@ -9,7 +9,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 b {
-    color: #069;
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 3px 6px 2px 6px;
+    border-radius: 4px;
+    margin: 0 3px;
+    vertical-align: baseline;
 }
 
 div.card-panel {
