@@ -68,7 +68,7 @@ Route::get('/', function() {
 //Что значит что должен отработаь метод index контролелра HomeController
 
 //В роутах можно указывать в пути переменную, формата:
-Route::get('massage/{id}/edit', ['uses' => 'HomeController@edit', 'as' => 'massage.edit'])->where(['id' => '[0-9]+']);
+Route::get('message/{id}/edit', ['uses' => 'HomeController@edit', 'as' => 'message.edit'])->where(['id' => '[0-9]+']);
 //where создает правило для переменной id, в данном примере id возможна только цифра.
 //Функиця <b>dd($id)</b> => выводит дамп переменной $id
 
@@ -116,7 +116,7 @@ Route::group(['middleware' => 'guest'], function () {
 
 //Для указания вложенности шаблонов используется конструкцуия(в контроллере):
 public function index() {
-    return view ('page.massages.index');
+    return view ('page.messages.index');
 }
             </pre>
             <h5>Передача переменных</h5>
@@ -127,12 +127,12 @@ $date = [
     'title' => 'Гостевая книга на laravel 5.6',
     'page_title' => 'Гостевая книга'
 ];
-return view ('page.massages.index', $date);
+return view ('page.messages.index', $date);
 }
 
 //можно передать через ->with():
-return view ('page.massages.index')->with($date);
-return view ('page.massages.index')->with('title', 'Гостевая книга');
+return view ('page.messages.index')->with($date);
+return view ('page.messages.index')->with('title', 'Гостевая книга');
             </pre>
             <div class="card-panel">
                 В шаблоне переменная будет выгледеть как <b>{{ $item }}</b>, а в передачи через массив в контроллере <b>['item' => 'Значение']</b><br>
@@ -151,7 +151,7 @@ return view ('page.massages.index')->with('title', 'Гостевая книга'
 php artisan make:migration --help
 
 //Создание миграции
-php artisan make:migration create_massage_table --create=имя_для_таблици
+php artisan make:migration create_message_table --create=имя_для_таблици
 
 php artisan make:migration --table=имя_таблицы --path=путь/к/миграции имя_миграции
 //--table=имя_таблицы указывается для создание конструктора под нужную таблицу
@@ -173,14 +173,14 @@ php artisan make:migration --path=путь/для/миграции имя_миг
             </pre>
             <p>При создании таблици в файле миграции указывается конструкция:</p>
             <pre data-enlighter-language="php">
-Schema::create('massage', function (Blueprint $table) {
+Schema::create('message', function (Blueprint $table) {
     $table->string('email', 30);
     ...
 });
             </pre>
             <p>При изменении таблици в файле миграции указывается конструкция:</p>
             <pre data-enlighter-language="php">
-Schema::table('massage', function (Blueprint $table) {
+Schema::table('message', function (Blueprint $table) {
     $table->string('name', 40);
             ...
 });
@@ -221,28 +221,28 @@ php artisan make:model Models/MyModel -m
             <pre data-enlighter-language="php">
 php artisan tinker
 
-$msg = new Massage;
+$msg = new message;
 $msg->name = 'Vita';
 $msg->email = 'vitia@yandex.ru';
-$msg->massage = 'First massage';
+$msg->message = 'First message';
 
 //Запись в БД
 $msg->save();
 
 //Вывод всех записей
-Massage::all();
+message::all();
 
 //Получить запись по ID
-Massage::find(1);
+message::find(1);
 
 //Сортировака вывода
-Massage::orderBy('created_at', 'desc'(по возврастанию/убыванию))->get()
+message::orderBy('created_at', 'desc'(по возврастанию/убыванию))->get()
 //Имеются встроенные методы сортировки latest и oldest:
-Massage::latest()->get()
+message::latest()->get()
 
 
 //Обновление записи
-$m->massage = 'new massage';
+$m->message = 'new message';
 $m->save();
 
 //Удаление
@@ -250,13 +250,13 @@ $m->delete();
             </pre>
             <p>Существует быстрый способ создание записи в БД через класс:</p>
             <pre data-enlighter-language="php">
-Massage::create(['name' => 'Andrey', 'email' => 'andre@mail.ru', 'massage' => 'My Massage']);
+message::create(['name' => 'Andrey', 'email' => 'andre@mail.ru', 'message' => 'My message']);
             </pre>
             <p>Для его использования нелбходимо в классе добавить записи с перечеслением полей который можно записывать таким образом в переменную:</p>
             <pre>
-class Massage extends Model
+class message extends Model
 {
-    protected $fillable = ['user', 'email', 'massage'];
+    protected $fillable = ['user', 'email', 'message'];
 }
             </pre>
             <h5>Пагинация</h5>
@@ -264,14 +264,14 @@ class Massage extends Model
 $date = [
     'title' => 'Гостевая книга на laravel 5.6',
     'page_title' => 'Гостевая книга',
-    'massages' => Massage::latest()->paginate(1),
-    'count' => Massage::count()
+    'messages' => message::latest()->paginate(1),
+    'count' => message::count()
 ];
             </pre>
             <p><b>paginate()</b> принимает кол-во записей выводимых на странице, набор полей БД, ключь лля номера текущей страницы, номер страницы.</p>
             <p>Для вывода переключателей страниц используется метод render()</p>
             <pre data-enlighter-language="php">
-{!! $massages->render() !!}
+{!! $messages->render() !!}
             </pre>
         </div>
     </li>
