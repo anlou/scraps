@@ -52,6 +52,7 @@
                 <li class="tab"><a href="#dlink">DeepLink</a></li>
                 <li class="tab"><a href="#git">git</a></li>
                 <li class="tab"><a href="#laravel">laravel</a></li>
+                <li class="tab"><a href="#vue">vue.js</a></li>
             </ul>
         </div>
 
@@ -101,6 +102,10 @@
 
         <div id="laravel" class="col">
 		    <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/laravel.php"?>
+        </div>
+
+        <div class="col" id="vue">
+	        <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/vue.php"?>
         </div>
 
     </div>
