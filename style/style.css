@@ -16,7 +16,17 @@ b {
     border-radius: 4px;
     margin: 0 3px;
     vertical-align: baseline;
+    font-weight: normal;
 }
+
+/*b {*/
+    /*color: #e96900;*/
+    /*background-color: #f8f8f8;*/
+    /*padding: 3px 5px;*/
+    /*margin: 0 2px;*/
+    /*border-radius: 2px;*/
+    /*white-space: nowrap;*/
+/*}*/
 
 div.card-panel {
     width: 100%;
