@@ -23,7 +23,7 @@ var ИМЯ_ОБЬЕКТА = new Vue({
             <div class="card-panel">
                 Директивы имеют префикс <b>v-</b>, указывающий на их особую природу. Как вы уже могли догадаться, они применяют к отображаемому DOM особое реактивное поведение, управляемое Vue. Например:
                 <ul>
-                    <li><b>v-bind</b> служит привязкой к Data vue. Например:
+                    <li><b>v-bind</b> служит привязкой к Data vue. Может быть коротко описан как ":" Например:
                         <pre data-enlighter-language="javascript">
 <a v-bind:href="link">url</a>
 // Где link:
@@ -62,7 +62,7 @@ data: {
 
                         </pre>
                     </li>
-                    <li><b>v-on:</b> для наблюдения за событиями, указав метод-обработчик. Например:
+                    <li><b>v-on:</b> для наблюдения за событиями, указав метод-обработчик. Может быть коротко описан как "@" Например:
                         <pre data-enlighter-language="javascript">
 <button v-on:click="reverseMessage">
 //где reverseMessage метод:
@@ -97,6 +97,20 @@ data: {
             </div>
         </div>
 	</li>
+
+    <li>
+        <div class="collapsible-header">Мелкие примеры</div>
+        <div class="collapsible-body">
+            <pre data-enlighter-language="javascript">
+<div id="app">
+    <ul>
+        <li v-for="person in people" v-bind:class="{'strike':person.stillAlive}"></li>
+    </ul>
+</div>
+            </pre>
+            <p>Перечисляет из массива people, применяет класс strike для элементов с person.stillAlive = true</p>
+        </div>
+    </li>
 
 
 </ul>
