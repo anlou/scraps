@@ -6,6 +6,20 @@
     </div>
 
     <li>
+        <div class="collapsible-header">Выборка обьектов DOM</div>
+        <div class="collapsible-body">
+            <div class="card-panel">
+                <b>document.getElementById('someId')</b> - по id елемента
+                <b>document.getElementByClassName('someClass')</b> - по классу елемента
+                <b>document.getElementsByName('someTagName')</b> - по классу елемента
+                <b>document.querySelectorAll('some > style > css')</b> - возвращает елемент удовлетворяющий css селектору
+                <p>var elements = document.querySelectorAll('ul > li:last-child');</p>
+
+            </div>
+        </div>
+    </li>
+
+    <li>
         <div class="collapsible-header">Работа c переменными, преобразование</div>
         <div class="collapsible-body">
 

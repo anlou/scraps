@@ -109,8 +109,71 @@ data: {
 </div>
             </pre>
             <p>Перечисляет из массива people, применяет класс strike для элементов с person.stillAlive = true</p>
+            <pre data-enlighter-language="javascript">
+<div id="app">
+    <label for="input">Name:</label>
+    <input type="text" @keyUp="chengeName">
+</div>
+            </pre>
+            <p>Запуск функиции chengeName, по нажатию клавиши в инпуте</p>
         </div>
     </li>
 
+    <li>
+        <div class="collapsible-header">События</div>
+        <div class="collapsible-body">
+            <pre data-enlighter-language="javascript">
+<input type="text" @keyUp.enter="chengeName">
+            </pre>
+            <p>Запуск функиции chengeName, по нажатию клавиши enter в инпуте</p>
+            <div class="card-panel">
+                Модификаторы клавишь:
+                <ul>
+                    <li><b>.enter</b></li>
+                    <li><b>.tab</b></li>
+                    <li><b>.delete</b></li>
+                    <li><b>.esc</b></li>
+                    <li><b>.up</b></li>
+                    <li><b>.down</b></li>
+                    <li><b>.left</b></li>
+                    <li><b>.right</b></li>
+                </ul>
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <div class="collapsible-header">Вычесляемые свойства</div>
+        <div class="collapsible-body">
+            <pre data-enlighter-language="javascript">
+let app = new Vue({
+    el: '#app',
+    data: {
+        a: 0,
+        b: 0,
+        age: 20
+    },
+    methods: {
+
+    },
+    computed: {
+        addToA: function () {
+            console.log('addToA');
+            return this.a + this.age;
+        },
+        addToB: function () {
+            console.log('addToB');
+            return this.b + this.age;
+        }
+    }
+});
+            </pre>
+            <p>Вычесляемые свойствва описываются как методы но в разделе <b>computed</b> Теперь для их использования в html пишем их как свойство</p>
+            <pre data-enlighter-language="html">
+<span>Age + A = {{ addToA }}</span>
+<span>Age + B = {{ addToB }}</span>
+            </pre>
+        </div>
+    </li>
 
 </ul>
