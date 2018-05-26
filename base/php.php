@@ -3,6 +3,7 @@
     <div class="link">
         <a href="http://php.net/manual/ru/langref.php">Справочник языка</a>
         <a href="http://php.net/manual/ru/funcref.php">Справочник функций</a>
+        <a href="http://php.net/manual/ru/class.pdo.php">Справочник PDO</a>
     </div>
     <li>
         <div class="collapsible-header">Исключения, PDO</div>

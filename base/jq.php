@@ -5,6 +5,7 @@
 <ul class="collapsible popout" data-collapsible="accordion">
     <div class="link">
         <a href="https://jquery-docs.ru/">jquery-docs.ru</a>
+        <a href="http://jquery.page2page.ru/index.php5/Заглавная_страница">Карта функций</a>
     </div>
     <li>
         <div class="collapsible-header">Базовые функции jQuary</div>
@@ -52,6 +53,8 @@ $(‘#popUp’) . weight(300px) . height(250px);
             <b>:hidden</b> – находит скрытые элементы, в том числе к которым относятся элементы с CSS свойством
             display: none;<br>
             <b>:visible</b> – находит видимые элементы<br>
+            <b>:checked</b> – выборка елементов формы со значением checked<br>
+
             <b>.next()</b> находит элемент, который следует непосредственно за текущим элементом, в аргументе можно
             указать класс или ID, для более точного выбора<br>
             <b>.is(‘состояние’)</b> – выборка для состояния элемента, используется в условиях
@@ -122,9 +125,13 @@ div.append('<span/>');
         <div class="collapsible-header">Работа с атрибутами html через jQuary</div>
         <div class="collapsible-body">
             <div class="card-panel">
-                <b>.attr()</b> – читает/записывает атрибут указанного HTML элемента<br>
-                <b>.removeAttr()</b> – удаляет указанный атрибут выбранного элемента
-                <b>.remove()</b> - удаляет выбранные элементы из DOM
+                <ul>
+                    <li><b>.attr("class")</b> – читает/записывает атрибут указанного HTML элемента</li>
+                    <li><b>.attr("class", "divEl")</b> – читает/записывает атрибут указанного HTML элемента</li>
+                    <li><b>.removeAttr()</b> – удаляет указанный атрибут выбранного элемента</li>
+                    <li><b>.remove()</b> - удаляет выбранные элементы из DOM</li>
+                    <li><b>.prop("checked");</b> - Возвращает или изменяет значение свойств выбранных элементов страницы, у чекбокса вернет true если отмечен</li>
+                </ul>
             </div>
             <pre data-enlighter-language="javascript">
 $("img").attr("width","500");
