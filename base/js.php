@@ -13,9 +13,32 @@
                 <b>document.getElementByClassName('someClass')</b> - по классу елемента
                 <b>document.getElementsByName('someTagName')</b> - по классу елемента
                 <b>document.querySelectorAll('some > style > css')</b> - возвращает елемент удовлетворяющий css селектору
-                <p>var elements = document.querySelectorAll('ul > li:last-child');</p>
-
             </div>
+            <pre data-enlighter-language="javascript">
+var elements = document.querySelectorAll('ul > li:last-child');
+            </pre>
+        </div>
+    </li>
+
+    <li>
+        <div class="collapsible-header">Редактирвания свойств CSS</div>
+        <div class="collapsible-body">
+            <a href="https://learn.javascript.ru/styles-and-classes">Подробно</a>
+            <div class="card-panel">
+                Свойство <b>element.style</b> возвращает объект, который дает доступ к стилю элемента на чтение и запись.
+                С его помощью можно изменять большинство CSS-свойств, например <b>element.style.width="100px"</b> работает так,
+                как будто у элемента в атрибуте прописано <b>style="width:100px"</b>.
+                Единицы измерения обязательны в style, нужно указывать единицы измерения, например px.
+                Ни в коем случае не просто elem.style.width = 100 – работать не будет.
+            </div>
+            <pre data-enlighter-language="javascript">
+background-color  => elem.style.backgroundColor
+z-index           => elem.style.zIndex
+border-left-width => elem.style.borderLeftWidth
+
+// Пример использования
+document.body.style.backgroundColor = prompt('background color?', 'green');
+            </pre>
         </div>
     </li>
 
