@@ -335,9 +335,14 @@ span-class:nth-of-type(-2n+3) {
                 </li>
 
                 <li>
+
                     <div class="collapsible-header">Flexbox</div>
                     <div class="collapsible-body">
-                        <a href="http://html5.by/blog/flexbox/">flexbox в примере</a>
+                        <div class="lin">
+                            <a href="http://the-echoplex.net/flexyboxes/">flex на примере</a>
+                            <a href="https://wp-kama.ru/id_8045/flex-v-css.html">flex просто и понятно</a>
+                            <a href="http://html5.by/blog/flexbox/">flexbox в примере 2</a>
+                        </div>
                         <div class="card-panel">
                             <p>Flexbox определяет набор CSS свойств для контейнера (flex-контейнер) и его дочерних элементов (flex-блоков). Первое, что нужно сделать – это указать контейнеру <b>display:flex</b> или <b>display:inline-flex</b></p>
                         </div>

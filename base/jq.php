@@ -1,12 +1,9 @@
-
 <div class="link">
+    <a href="https://jquery-docs.ru/">jquery-docs.ru</a>
+    <a href="http://jquery.page2page.ru/index.php5/Заглавная_страница">Карта функций</a>
     <a href="https://jqueryui.com/draggable/">JQ UI</a>
 </div>
 <ul class="collapsible popout" data-collapsible="accordion">
-    <div class="link">
-        <a href="https://jquery-docs.ru/">jquery-docs.ru</a>
-        <a href="http://jquery.page2page.ru/index.php5/Заглавная_страница">Карта функций</a>
-    </div>
     <li>
         <div class="collapsible-header">Базовые функции jQuary</div>
         <div class="collapsible-body">
@@ -155,6 +152,7 @@ $("p").remove(":contains('Hello')");
                 <b>mousedown</b> – событие нажатия кнопки мыши<br>
                 <b>mouseup</b> – события отпускания кнопки мыши<br>
                 <b>mouseover</b> – событие которое запускается при наведении указателя мышки<br>
+                <b>mouseout</b> – событие которое запускается при уходе указателя мышки<br>
                 <b>mousemove</b> – событие запускается при передвижении курсора<br>
                 <b>hover</b> – событие наведения курсора, работает с двумя функциями(при наведении и при увода мыши в
                 сторону), сочетает в себе методы <b>mouseEnter и mouseLeave</b>. Общий вид:
