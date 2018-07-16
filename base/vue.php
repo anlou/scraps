@@ -37,11 +37,23 @@ data: {
                     </li>
                     <li><b>v-if</b> задание условия, например отображение. Например:
                         <pre data-enlighter-language="javascript">
-<span v-if="seen">Сейчас меня видно</span>
+<span v-if="toggle">Сейчас меня видно</span>
 //...
 data: {
-    seen: true
+    toggle: true
 }
+                        </pre>
+                        <span>Также имеет конструкцю <b>v-else</b>. Обьявлется после <b>v-if</b> и может служить свого рода рендерингом по умолчанию:</span>
+                        <pre data-enlighter-language="javascript">
+<button @click="error = !error">Toggle error</button>
+<button @click="success = !success">Toggle success</button>
+<p v-if="error">Error message</p>
+<p v-else="success">Success message</p>
+//...
+data: {
+    error: false,
+    success: true,
+},
                         </pre>
                     </li>
                     <li><b>v-for</b> может быть использована для отображения списков, используя данные из массива
