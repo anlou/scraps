@@ -121,6 +121,7 @@ data: {
 </div>
             </pre>
             <p>Перечисляет из массива people, применяет класс strike для элементов с person.stillAlive = true</p>
+
             <pre data-enlighter-language="javascript">
 <div id="app">
     <label for="input">Name:</label>
@@ -128,6 +129,36 @@ data: {
 </div>
             </pre>
             <p>Запуск функиции chengeName, по нажатию клавиши в инпуте</p>
+
+            <pre data-enlighter-language="javascript">
+<input type="text" @keyp.enter="addTask" v-model="currentTask">
+<div v-for="todo in tasks">
+    <span :class="{'done': todo.complete}">{{ todo.text }}
+        <input type="checkbox" v-model="todo.complete">
+    </span>
+</div>
+
+// ...
+data: {
+    currentTask,
+    tasks: [
+        {
+            text: 'Уборка',
+            complete: false
+        },
+    ]
+}
+methods: {
+    addTask: function () {
+        this.tasks.push({
+            text: this.currentTask,
+            complete: false
+        });
+        this.currentTask = '';
+    }
+}
+            </pre>
+            <p>Запуск функиции addTask(), по нажатию клавиши в Enter, также содержимое input передается в currentTask (app.currentTask) где можно его использовать в самой функции addTask()</p>
         </div>
     </li>
 
