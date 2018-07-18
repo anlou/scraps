@@ -229,6 +229,9 @@ throw true;     // генерирует исключение, значением
 
     <li>
         <div class="collapsible-header">Массивы</div>
+        <div class="link">
+            <a href="https://learn.javascript.ru/array-methods">Array in learnJS</a>
+        </div>
         <div class="collapsible-body">
             <pre data-enlighter-language="javascript">
 var arr = []; // Создать пустой массив
@@ -260,8 +263,7 @@ for(var i = 0; i < keys.length; i++) { // Для каждого элемента
     values[i] = obj[key];              // Сохранить значение в массиве values
 }
 
-arr.forEach(function(){ ... })         // Проходит по каждому элементы массива
-arr.forEach(callback[, thisArg])       // Для каждого элемента массива вызывает функцию callback.
+arr.forEach(callback(item, i, arr){.}) // Проходит по каждому элементы массива
             </pre>
             <div class="card-panel">
                 Этой функции он передаёт три параметра callback(item, i, arr):<br>
@@ -291,7 +293,6 @@ function isPositive(number) {
 }
 alert( arr.every(isPositive) ); // false, не все положительные
 alert( arr.some(isPositive) ); // true, есть хоть одно положительное
-
             </pre>
             <div class="card-panel">
                 Методы <b>indexOf()</b> и <b>lastIndexOf()</b> отыскивают в массиве элемент с указанным значением и
@@ -304,6 +305,21 @@ a = [0, 1, 2, 1, 0];
 a.indexOf(1)       // => 1: a[1] = 1
 a.lastIndexOf(1)   // => 3: a[3] = 1
 a.indexOf(3)       // => -1: нет элемента со значением 3
+            </pre>
+            <div class="card-panel">
+                Метод <b>map</b> arr.map(callback[, thisArg]) используется для трансформации массива.
+                Он создаёт новый массив, который будет состоять из результатов вызова callback(item, i, arr) для каждого элемента arr.
+                Например:
+            </div>
+            <pre data-enlighter-language="javascript">
+var names = ['HTML', 'CSS', 'JavaScript'];
+
+var nameLengths = names.map(function(name) {
+  return name.length;
+});
+
+// получили массив с длинами
+alert( nameLengths ); // 4,3,10
             </pre>
 
             <div class="card-panel">
@@ -380,7 +396,6 @@ alert( keys ); // name, age
             </div>
         </div>
     </li>
-
 
     <li>
         <div class="collapsible-header">Обьекты</div>
