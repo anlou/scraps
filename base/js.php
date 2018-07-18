@@ -14,7 +14,7 @@
                 <b>document.getElementsByName('someTagName')</b> - по классу елемента
                 <b>document.querySelectorAll('some > style > css')</b> - возвращает елемент удовлетворяющий css селектору
             </div>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 var elements = document.querySelectorAll('ul > li:last-child');
             </pre>
         </div>
@@ -31,7 +31,7 @@ var elements = document.querySelectorAll('ul > li:last-child');
                 Единицы измерения обязательны в style, нужно указывать единицы измерения, например px.
                 Ни в коем случае не просто elem.style.width = 100 – работать не будет.
             </div>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 background-color  => elem.style.backgroundColor
 z-index           => elem.style.zIndex
 border-left-width => elem.style.borderLeftWidth
@@ -47,7 +47,7 @@ document.body.style.backgroundColor = prompt('background color?', 'green');
         <div class="collapsible-body">
 
             <h5>Строки</h5>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 'use strict'; - использовать современный стиль програмирования, указывается в начале документа
 
 var s = prompt("Ввдите текст")
@@ -85,7 +85,7 @@ s.toLowerCase() //=> "hello world" преобразовывает в нижни�
 
                 </pre>
             <h5>Числа</h5>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 // Преобразование в число
 var s = "12.34";
 var num = +s; // 12.34
@@ -148,7 +148,7 @@ s.indexOf("подстрока"[, начальная_позиция]) - выпо�
                 </ul>
                 <h5>Форматирование и вывод дат</h5>
                 <b>date.toLocaleString(локаль, опции)</b>
-                <pre data-enlighter-language="javascript">
+                <pre data-enlighter-language="js">
 alert( date.toLocaleString("ru", options) ); // среда, 31 декабря 2014 г. н.э. 12:30:00
 alert( date.toLocaleString("en-US", options) ); // Wednesday, December 31, 2014 Anno Domini 12:30:00 PM
                 </pre>
@@ -160,21 +160,21 @@ alert( date.toLocaleString("en-US", options) ); // Wednesday, December 31, 2014 
     <li>
         <div class="collapsible-header">Функция, и ряд операторов</div>
         <div class="collapsible-body">
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 //Обьявление простой функции
 var square = function(x) { return x * x; }
             </pre>
             Оператор <b>in</b>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 "x" in point //=>true: объект имеет свойство с именем "x"
 "z" in point //=>false: объект не имеет свойства с именем "z"
             </pre>
             Оператор <b>instanceof</b> - проверка класса
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 var current_Class = d instanceof Date; //>=true, обьект d был создан функцей Date
             </pre>
             Операторы <b>&& || ! +=</b>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 if (a == b) stop();
 //тоже что и
 (a == b) && stop();
@@ -199,7 +199,7 @@ delete item.x
 //Удаляет св-во "x" из обьекта item
             </pre>
             Оператор <b>++</b> и аналоги
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 var i = 1, j = ++i;//i и j содержат значение 2
 var i = 1, j = i++;//i содержит значение 2, j содержит значение 1
             </pre>
@@ -208,7 +208,7 @@ var i = 1, j = i++;//i содержит значение 2, j содержит �
 возвращает undefined.<br>
 Инициализаторы объектов
             </div>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 var p = { x:2.3, y: 1.2 }; //Объект с 2 свойствами
 var q = {}; //Пустой объект без свойств
 q.x = 2.3; q.y = 1.2; //Теперь q имеет теже свойства, что и p
@@ -219,7 +219,7 @@ q.x = 2.3; q.y = 1.2; //Теперь q имеет теже свойства, ч�
                 передано в первый блок catch в стеке вызовов. Если catch блоков среди вызванных функций нет, выполнение
                 программы будет остановлено.
             </div>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 throw "Error2"; // генерирует исключение, значением которого является строка
 throw 42;       // генерирует исключение, значением которого является число 42
 throw true;     // генерирует исключение, значением которого является логическое значение true
@@ -229,11 +229,11 @@ throw true;     // генерирует исключение, значением
 
     <li>
         <div class="collapsible-header">Массивы</div>
-        <div class="link">
-            <a href="https://learn.javascript.ru/array-methods">Array in learnJS</a>
-        </div>
         <div class="collapsible-body">
-            <pre data-enlighter-language="javascript">
+            <div class="link">
+                <a href="https://learn.javascript.ru/array-methods">Array in learnJS</a>
+            </div>
+            <pre data-enlighter-language="js">
 var arr = []; // Создать пустой массив
 
 var arr = new Array; // Создать пустой массив
@@ -255,7 +255,7 @@ delete arr[1]; // теперь в массиве a отсутствует эле
 var $temp = arr.pop() // уменьшает длину массива на 1 и возвращает значение удаленного элемента
             </pre>
             <h5>Обход элементов массива</h5>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 var keys = Object.keys(obj);           // Получить массив имен свойств объекта obj
 var values = []                        // Массив для сохранения значений свойств
 for(var i = 0; i < keys.length; i++) { // Для каждого элемента в массиве
@@ -271,7 +271,7 @@ arr.forEach(callback(item, i, arr){.}) // Проходит по каждому �
                 <b>i</b> – его номер.<br>
                 <b>arr</b> – массив, который перебирается.<br>
             </div>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 var arr = ["Яблоко", "Апельсин", "Груша"];
 arr.forEach(function(item, i, arr) {
     alert( i + ": " + item + " (массив:" + arr + ")" );
@@ -300,7 +300,7 @@ alert( arr.some(isPositive) ); // true, есть хоть одно положи�
                 первого найденного элемента или –1, если элемент с таким значением отсутствует. Метод <b>indexOf()</b>
                 выполняет поиск от начала массива к концу, а метод <b>lastIndexOf()</b> – от конца к началу.
             </div>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 a = [0, 1, 2, 1, 0];
 a.indexOf(1)       // => 1: a[1] = 1
 a.lastIndexOf(1)   // => 3: a[3] = 1
@@ -311,7 +311,7 @@ a.indexOf(3)       // => -1: нет элемента со значением 3
                 Он создаёт новый массив, который будет состоять из результатов вызова callback(item, i, arr) для каждого элемента arr.
                 Например:
             </div>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 var names = ['HTML', 'CSS', 'JavaScript'];
 
 var nameLengths = names.map(function(name) {
@@ -321,7 +321,22 @@ var nameLengths = names.map(function(name) {
 // получили массив с длинами
 alert( nameLengths ); // 4,3,10
             </pre>
+            <div class="card-panel">
+                <b>every/some</b>
+                Эти методы используются для проверки массива.
+                Метод «arr.every(callback[, thisArg])» возвращает true, если вызов callback вернёт true для каждого элемента arr.
+                Метод «arr.some(callback[, thisArg])» возвращает true, если вызов callback вернёт true для какого-нибудь элемента arr.
+            </div>
+            <pre data-enlighter-language="js">
+var arr = [1, -1, 2, -2, 3];
 
+function isPositive(number) {
+  return number > 0;
+}
+
+alert( arr.every(isPositive) ); // false, не все положительные
+alert( arr.some(isPositive) ); // true, есть хоть одно положительное
+</pre>
             <div class="card-panel">
                 <h5>Методы Array</h5>
                 <b>Array.join(";")</b> преобразует все элементы массива в строки, противоположность .split<br>
@@ -332,7 +347,7 @@ alert( nameLengths ); // 4,3,10
                 Возвращает массив из удалённых элементов.<br>
                 <b>Array.slice(begin, end)</b> копирует участок массива от begin до end, не включая end. Исходный массив
                 при этом не меняется.<br>
-                <pre data-enlighter-language="javascript">
+                <pre data-enlighter-language="js">
 var ary = [1, 2, 3];
 ary.join();              // => "1,2,3"
 ary.join(" ");           // => "1 2 3"
@@ -345,7 +360,7 @@ a.slice(3);     // Вернет [4,5]
                 <b>Array.sort(fn)</b> сортировка массива<br>
                 Для указания своего порядка сортировки в метод arr.sort(fn) нужно передать функцию fn от двух элементов,
                 которая умеет сравнивать их.<br>
-                <pre data-enlighter-language="javascript">
+                <pre data-enlighter-language="js">
 function compareNumeric(a, b) {
     if (a > b) return 1;
     if (a < b) return -1;
@@ -364,14 +379,14 @@ arr.sort(compareNumeric);
 alert(arr);  // 1, 2, 15
                 </pre>
                 <p>Или в одну строку</p>
-                <pre data-enlighter-language="javascript">
+                <pre data-enlighter-language="js">
 function compareNumeric(a, b) {
     return a - b;
 }
                 </pre>
                 <b>arr.concat(value1, value2, … valueN)</b> - создаёт новый массив, в который копируются элементы из
                 arr, а также value1, value2, ... valueN.
-                <pre data-enlighter-language="javascript">
+                <pre data-enlighter-language="js">
 var arr = [1, 2];
 var newArr = arr.concat(3, 4);
 
@@ -383,7 +398,7 @@ alert( newArr ); // 1,2,3,4
 
                 <h5>Преобразование ключей обьекта в массив</h5>
                 <b>Object.keys(obj)</b>
-                <pre data-enlighter-language="javascript">
+                <pre data-enlighter-language="js">
 var user = {
     name: "Петя",
     age: 30
@@ -401,7 +416,7 @@ alert( keys ); // name, age
         <div class="collapsible-header">Обьекты</div>
         <div class="collapsible-body">
             <h5>Создание обьекта</h5>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 obj = new Object();
 obj = {};
 
@@ -431,7 +446,7 @@ person[property] = 28;
             </pre>
 
             <h5>Свойства обьекта</h5>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 // Для перебора св-в обекта
 for (var key in obj) {
     /* ... делать что-то с obj[key] ... */
@@ -442,7 +457,7 @@ Object.keys(obj).length
             </pre>
 
             <h5>Клонирование обьекта</h5>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 //Создание ССЫЛКИ на обьект
 
 var user = { name: 'Вася' };
@@ -475,17 +490,17 @@ alert( user.name ); // по-прежнему "Вася"
                 <b>Object.prototype</b> - содержит прототип(родитель) обьекта.<br>
                 <b>Object.create()</b> - создаёт новый объект с указанными объектом прототипа и свойствами.<br>
             </div>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 var o1 = Object.create({x:1, y:2}); //o1 наследует свойства x и y.
 item1.prototype = protoType; //установка прототипа item1, в item1 будет унаследованы свойства и методы прототипа
             </pre>
             <h5>Удаление свойств</h5>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 delete book.author; //Теперь объект book  не имеет свойства author.
 delete book["main­title"]; //Теперь он не имеет свойства "main­title".
             </pre>
             <h5>Проверка свойств</h5>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 var o = { x:1 };
 o.hasOwnProperty("x"); //true: o имеет собственное свойство x
 o.hasOwnProperty("y"); //false:не имеет свойства y
@@ -496,13 +511,13 @@ o.hasOwnProperty("toString"); //false:toString наследуемое свойс
 "toString" in o; //true: o наследует свойство toString
             </pre>
             <h5>Перечисление св-в</h5>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 var o = {x:1, y:2, z:3};
 for(p in o)                        //Цикл по свойствам
     console.log(p);                //Выведет x, y и z, но не toString
             </pre>
             <h5>Чтения/getter и записи/setter свойств</h5>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 var o = {
     //Обычное свойство с данными
     data_prop : value,
@@ -520,7 +535,7 @@ var o = {
                 <b>prop</b> - Имя определяемого или изменяемого свойства.
                 <b>descriptor</b> - Дескриптор определяемого или изменяемого свойства.
             </div>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 Object.defineProperty(obj, 'key', {
     enumerable: false, //enumerable - способеность к перечислению, например в цикле for in
     configurable: false, //configurable - способность редактирования дескриптора свойства.
@@ -535,7 +550,7 @@ Object.defineProperty(obj, 'key', {
         <div class="collapsible-header">Цепочка вызвов</div>
         <div class="collapsible-body">
             <p>Есть код</p>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 Есть код
 var ladder = {
     step: 0,
@@ -551,18 +566,18 @@ var ladder = {
 };
             </pre>
             <p>Сейчас, если нужно последовательно вызвать несколько методов объекта, это можно сделать так:
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 ladder.up();
 ladder.up();
 ladder.down();
 ladder.showStep(); // 1
             </pre>
             <p>Чтобы вызовы можно было делать цепочкой, вот так</p>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 ladder.up().up().down().up().down().showStep(); // 1
             </pre>
             <p>Необходимо модифицировать код методов так, что бы они возвращали обьект</p>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 var ladder = {
     step: 0,
     up: function() {
@@ -585,7 +600,7 @@ var ladder = {
     <li>
         <div class="collapsible-header">Дестриктуризация, метод spread "..."</div>
         <div class="collapsible-body">
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 'use strict';
 
 let [firstName, lastName, ...rest] = "Юлий Цезарь Император Рима".split(" ");
@@ -605,7 +620,7 @@ alert(rest);      // Император,Рима (массив из 2х элем
                 <p>При передачи числа вернет число, при передачи строки будет пробовать интерпритировать как код на JS
                     в случае неудачи вернет SyntaxError, в случае успеза вернет значение из return переданного кода.
             </div>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 eval("function f() { return x+1; }");
             </pre>
         </div>
@@ -621,14 +636,14 @@ eval("function f() { return x+1; }");
                 интересует только его роль как глобального объекта.
                 Для обозначения глобального объекта используется "<b>window</b>".
             </div>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 var a = 5; // объявление var создаёт свойство window.a
 alert(window.a); // 5
 
 window.a = 5; // cоздать переменную можно и явным присваиванием в window
 alert(a); // 5
             </pre>
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 with(объект)
     инструкция
             </pre>
@@ -643,7 +658,7 @@ with(объект)
     <li>
         <div class="collapsible-header">Определение мобильных устройств из JavaScript</div>
         <div class="collapsible-body">
-            <pre data-enlighter-language="javascript">
+            <pre data-enlighter-language="js">
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     //какой-то код...
 }
@@ -659,9 +674,38 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     </li>
 
     <li>
+        <div class="collapsible-header">Псевдомассив аргументов "arguments"</div>
+        <div class="collapsible-body">
+            В JavaScript любая функция может быть вызвана с произвольным количеством аргументов.
+            Например:
+            <pre data-enlighter-language="js">
+function go(a,b) {
+  alert("a="+a+", b="+b);
+}
+
+go(1);     // a=1, b=undefined
+go(1,2);   // a=1, b=2
+go(1,2,3); // a=1, b=2, третий аргумент не вызовет ошибку
+            </pre>
+            <p>Доступ к ним осуществляется через «псевдо-массив» arguments.
+            Он содержит список аргументов по номерам: arguments[0], arguments[1]…, а также свойство length.
+            Например, выведем список всех аргументов:</p>
+            <pre data-enlighter-language="js">
+function sayHi() {
+  for (var i = 0; i < arguments.length; i++) {
+    alert( "Привет, " + arguments[i] );
+  }
+}
+
+sayHi("Винни", "Пятачок"); // 'Привет, Винни', 'Привет, Пятачок'
+            </pre>
+        </div>
+    </li>
+
+    <li>
         <div class="collapsible-header">Преобразование переменных и обьектов</div>
         <div class="collapsible-body">
-                    <pre data-enlighter-language="javascript">
+                    <pre data-enlighter-language="js">
 
                     </pre>
         </div>
