@@ -219,4 +219,37 @@ let app = new Vue({
         </div>
     </li>
 
+    <li>
+        <div class="collapsible-header">Компоненты</div>
+        <div class="collapsible-body">
+
+            <pre data-enlighter-language="javascript">
+Vue.component('greet', {
+    template: '<h2>{{ title }}</h2>',
+    data: function () {
+        return {
+            title: 'Hello batman'
+        }
+    },
+});
+            </pre>
+            <p>Создали компонени &lt;greet&gt;. В компоненте так же есть массив data, с обьектами, но заполняется он как функция</p>
+        </div>
+    </li>
+
+    <li>
+        <div class="collapsible-header">Ссылки на элементы (Refs)</div>
+        <div class="collapsible-body">
+            <pre data-enlighter-language="html">
+<div id="app">
+    <input type="text" ref="input">
+    <button @click="cTitle">Submit</button>
+    <p ref="parag"></p>
+</div>
+            </pre>
+            <p>Указываем тег <b>ref</b>="имя_компонента". Далее из любого места можем получить к ниму доступ через обьект this.$refs,
+                например this.$refs.input.value - доступ к значению input
+            </p>
+            <p>Ссылки и сам обьек ref существует только после рендеринга!!!</p>
+
 </ul>
