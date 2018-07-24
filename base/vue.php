@@ -251,5 +251,117 @@ Vue.component('greet', {
                 например this.$refs.input.value - доступ к значению input
             </p>
             <p>Ссылки и сам обьек ref существует только после рендеринга!!!</p>
+        </div>
+    </li>
+
+    <li>
+        <div class="collapsible-header">Vue CLI</div>
+        <div class="collapsible-body">
+            <h5>Установка:</h5>
+            <pre data-enlighter-language="js">
+npm i -g vue-cli                /флаг g - установить глобально
+
+vue init webpack vue-project    /vue-project - название проэкта
+
+// переходим в папку с проэктом
+
+npm run dev
+            </pre>
+        </div>
+    </li>
+
+    <li>
+        <div class="collapsible-header">Импорт компонентов</div>
+        <div class="collapsible-body">
+            <p><b>App.vue</b> корневой файл приложения. В App.vue можем добавлять в data() обьекты для использования в приложении и локально добавляеть компоненты, конструкцией</p>
+            <pre data-enlighter-language="js">
+<template>
+  <div id="app">
+    <h1>{{ title }}</h1>
+    <Reg></Reg>
+    <button type="button" @click="component='Reg'">Reg</button>
+    <button type="button" @click="component='Auth'">Auth</button>
+    <component :is="component"></component>
+  </div>
+</template>
+// ...
+<script>
+import Auth from './components/Auth';
+import Reg from './components/Reg';
+// подключаем модули компонентов
+export default {
+    components: {
+        'Auth': Auth,
+        'Reg': Reg
+    },
+    // components - директива для локального подключение компонентов
+    data() {
+        return {
+            title: 'My CLI app',
+            component: 'Reg'
+        }
+    }
+}
+</script>
+
+            </pre>
+
+            <p><b>main.js</b> добавляет наше приложение Vue в index.html Для глобального добавления компонентов</p>
+            <pre data-enlighter-language="js">
+import Reg from './components/Reg';
+import Auth from './components/Auth';
+
+// и
+
+Vue.component('Reg', Reg);
+Vue.component('Auth', Auth);
+            </pre>
+
+            <h5>Динамические компоненты (пример выше)</h5>
+            <p><b>&lt;component&gt;</b> - специальный тег Vue, для выборки компонентов, с ним используем директиву is:</p>
+            <p><b>&lt;keep-alive&gt;</b> - специальный тег Vue, указывающий на то что бы не выгружать переменные из компонента,
+                а хранить в памяти, в случае переключения</p>
+            <pre data-enlighter-language="js">
+<template>
+  <div id="app">
+    <button type="button" @click="component='Reg'">Reg</button>
+    <button type="button" @click="component='Auth'">Auth</button>
+      <keep-alive>
+          <component :is="component"></component>
+      </keep-alive>
+
+  </div>
+</template>
+// ...
+<script>
+import Auth from './components/Auth';
+import Reg from './components/Reg';
+// подключаем модули компонентов
+export default {
+    components: {
+        'Auth': Auth,
+        'Reg': Reg
+    },
+    data() {
+        return {
+            // специальный тег Vue для динамического переключения компонентов
+            component: 'Reg'
+        }
+    }
+}
+</script>
+            </pre>
+        </div>
+    </li>
+
+
+
+    <li>
+        <div class="collapsible-header">Ссылки на элементы (Refs)</div>
+        <div class="collapsible-body">
+            <pre data-enlighter-language="html">
+            </pre>
+        </div>
+    </li>
 
 </ul>

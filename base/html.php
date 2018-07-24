@@ -34,8 +34,6 @@
         </div>
     </li>
 
-
-
     <li>
         <div class="collapsible-header">Теги для списков</div>
         <div class="collapsible-body card-panel">
@@ -119,6 +117,7 @@
             </div>
         </div>
     </li>
+
     <li>
         <div class="collapsible-header">Frame</div>
         <div class="collapsible-body card-panel">
@@ -158,6 +157,14 @@
             <b>color</b> – цвет<br>
             <b>date</b> – дата<br>
             <b>rage</b> – ползунок ввода<br>
+        </div>
+    </li>
+
+    <li>
+        <div class="collapsible-header">Условные комментарии, хуки для браузеров</div>
+        <div class="collapsible-body card-panel">
+            <pre data-enlighter-language="html"
+<!--[if IE 9]><link rel="stylesheet" href="/css/ie9.css"><![endif]-->
         </div>
     </li>
 </ul>
