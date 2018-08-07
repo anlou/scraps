@@ -107,6 +107,49 @@ data: {
                     </li>
                 </ul>
             </div>
+
+            <h5>Общая конструкция</h5>
+            <pre data-enlighter-language="javascript">
+'use strict';
+
+Vue.component('greet', {
+    props: ['person', 'array_key'],
+    // props - служит для передачи данных в компонент из вне. В базовом: <vue-item :list="anyArrayList">
+    template: '<h2>{{ list.todo }}</h2>',
+    // template - сам шаблон из html
+    data: function () {
+        // data тот же обьект с данными толкьо в компонент передается как function с return
+        return {
+            title: 'Hello batman'
+        }
+    }
+});
+
+new Vue({
+    el: "#app",
+    // el - выбираем елемент по селектору
+
+    data: {
+        // data - инициализируем и передаем данные
+        title: 'Title'
+    },
+
+    methods: {
+        // методы для елемента
+        addSome: function cTitle() {
+            this.title = this.$refs.input.value;
+        }
+    },
+
+    computed: {
+    // computed - вычисляемые свойства
+    titleVue: function () {
+        return this.title;
+    }
+}
+
+});
+            </pre>
         </div>
 	</li>
 
