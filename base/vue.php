@@ -145,10 +145,40 @@ new Vue({
     // computed - вычисляемые свойства
     titleVue: function () {
         return this.title;
+    },
+
+    watch: {
+    // watch - раздел для слжение за изменением переменной, в данном случае запускает selectAllAb при изменении переменной checkAllInputAB
+        checkAllInputAB: function() {
+            this.selectAllAb();
+        }
     }
 }
 
 });
+            </pre>
+
+            <h5>Обявление комонента внутри обьекта</h5>
+            <pre data-enlighter-language="javascript">
+let findComponent = new Vue({
+    el: '#ab-search-component',
+    delimiters: ['${', '}'],
+    name: 'findComponent',
+    // имя компонента, пишем в офрмате upcase в html теге подключем через <find-сomponent></find-сomponent>
+
+    // темплейт
+    template: [
+        '<div id="ab-search">',
+        '<input v-model="inputFindVal" type="text" maxlength="128" autocomplete="off" name="strpos" placeholder="{{ site._("Searching by email, display name, %id_name")|replace({"%id_name": settings.id_name}) }}" />',
+        '<img @click="clearFinder()" src="/images/ab-cross.png" alt="" />',
+        '</div>'
+    ].join(''),
+
+
+    data: {
+        inputFindVal: "",
+        clearFindImg: $('#ab-search img')
+    }, .....
             </pre>
         </div>
 	</li>
