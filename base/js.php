@@ -703,6 +703,88 @@ sayHi("Винни", "Пятачок"); // 'Привет, Винни', 'Прив�
     </li>
 
     <li>
+        <div class="collapsible-header">XHR</div>
+        <div class="collapsible-body">
+                    <pre data-enlighter-language="js">
+function getData(url, done) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.onload = function () {
+        if (xhr.status !== 200) {
+            console.error(xhr.statusText);
+            throw xhr.statusText;
+        }
+
+        let json = JSON.parse(xhr.response);
+        done(json.Search);
+
+        xhr.onerror = function (error) {
+            console.error(error);
+        };
+
+        xhr.send();
+    }
+}
+                    </pre>
+        </div>
+    </li>
+
+    <li>
+        <div class="collapsible-header">Promise</div>
+        <div class="collapsible-body">
+                    <pre data-enlighter-language="js">
+function applyForVisa(documents) {
+    console.info('Подпча документов...');
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            Math.random() > .3 ? resolve('Виза получена') : reject('В визе октазано');
+        }, 1200);
+    });
+    return promise;
+
+}
+
+function applyHotel(visa) {
+    console.info('Бронируем отель');
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            Math.random() > .5 ? resolve('Отель забронирован') : reject('Мест нет в отеле')
+        }, 1000);
+    });
+    return promise;
+}
+
+function buyTickets(buking) {
+    console.info('Покупаем билеты');
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            Math.random() > .5 ? resolve('Билеты') : reject('Нет билетов')
+        }, 1000);
+    });
+    return promise;
+}
+
+function answer(answer) {
+    console.info(answer);
+    return Promise.resolve(answer)
+}
+
+
+
+applyForVisa({})
+    .then(answer)
+    .then(applyHotel)
+    .then(answer)
+    .then(buyTickets)
+    .then(answer)
+    .catch((error) => {
+        console.error(error);
+    });
+                    </pre>
+        </div>
+    </li>
+
+    <li>
         <div class="collapsible-header">Преобразование переменных и обьектов</div>
         <div class="collapsible-body">
                     <pre data-enlighter-language="js">
