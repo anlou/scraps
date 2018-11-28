@@ -52,7 +52,8 @@
                 <li class="tab"><a href="#dlink">DeepLink</a></li>
                 <li class="tab"><a href="#git">git</a></li>
                 <li class="tab"><a href="#laravel">laravel</a></li>
-                <li class="tab"><a href="#vue">vue.js</a></li>
+                <li class="tab"><a href="#vue">Vue</a></li>
+                <li class="tab"><a href="#node">Node</a></li>
             </ul>
         </div>
 
@@ -106,6 +107,10 @@
 
         <div class="col" id="vue">
 	        <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/vue.php"?>
+        </div>
+
+        <div class="col" id="node">
+	        <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/node.php"?>
         </div>
 
     </div>
