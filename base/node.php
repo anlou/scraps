@@ -56,6 +56,51 @@ http.createServer((req, res) => {
 
 }).listen(3000, () => console.log('Server start on port 3000'));
             </pre>
+            <h5>Обработка POST Запроса</h5>
+            <pre data-enlighter-language="javascript">
+const http = require('http');
+const path = require('path');
+const fs = require('fs');
+
+// Для парсинга в JSON
+function parseBody(body) {
+    const result = {};
+
+    const keyValuePairs = body.split('&');
+    keyValuePairs.forEach(keyValue => {
+        const [key, value] = keyValue.split('=');
+        result[key] = value;
+    });
+
+    return result;
+}
+
+http.createServer((req, res) => {
+// Проверяем метод
+    switch (req.method) {
+        case 'GET':
+            // Если GET запрос передадим форму
+            const straem = fs.createReadStream(path.join(__dirname, 'public', 'form.html'));
+            res.writeHead(200, {'Contetnt-Type': 'text/html'});
+            straem.pipe(res);
+            break;
+        case 'POST':
+            let body = '';
+            // Без указания setEncoding в body будет находится буфер
+            req.setEncoding('utf-8');
+            // Подписываемя на событие получения data e у обьекта запроса
+            // И по мере поступления данных добавлем из в body
+            req.on('data', data => body += data);
+            // Как только все данные получены сработает end, подпишемся на него и обработаем
+            req.on('end', () => {
+                const data = parseBody(body);
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify(data));
+            });
+            break;
+    }
+}).listen(3000, () => console.log('Сервер работает на 3000 порте'));
+            </pre>
             <h5>Сервер на express</h5>
             <pre data-enlighter-language="js">
 
