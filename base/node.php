@@ -120,34 +120,107 @@ app.listen(3000, () => {
         <div class="collapsible-header">Модули</div>
         <div class="collapsible-body">
             <pre data-enlighter-language="js">
-const canadianDollar = 0.91;
-function roundTwo(amount) {
-    return Math.round(amount * 100) / 100;
+const data = require('./users');
+const User = require('./user');
+
+const users = data.map(({ firstName, lastName }) => new User(firstName, lastName));
+
+function getUsers() {
+    return users;
 }
-exports.canadianToUS = canadian => roundTwo(canadian * canadianDollar);
-exports.USToCanadian = us => roundTwo(us / canadianDollar);
 
-...
-Другой файл:
+function addUser(newUser) {
+    users.push(newUser);
+}
 
-const currency = require('./currency');
-console.log('50 Canadian dollars equals this amount of US dollars:');
-console.log(currency.canadianToUS(50));
-console.log('30 US dollars equals this amount of Canadian dollars:');
-console.log(currency.USToCanadian(30));
+// Экспортируем
+module.exports = {
+    getUsers,
+    addUser
+};
+
+// Или так
+module.exports = {
+    get: getUser,
+    add: addUser
+};
+
+// Или так
+exports.get = getUser;
             </pre>
             <div class="card-panel">
                 Механизм <b>module.exports</b> позволяет экспортировать одну переменную, функцию или объект. Если вы создаете модуль, который заполняет как exports,
                 так и <b>module.exports</b>, то возвращается module.exports, а exports игнорируется
             </div>
+            <div class="card-panel">
+                Также, можно групировать модули в папку, в которой создавать index.js который подключает все внутрение файлы,
+                и экспортирует их.
+            </div>
+            <pre data-enlighter-language="js">
+// index.js распологается в директории ./db
+const db = require('./db');
+const User = require('./user');
+
+module.exports = {
+    db,
+    User,
+};
+            </pre>
+            <pre data-enlighter-language="js">
+// Использование
+const db = require('./db').db;
+const User = require('./db').User;
+
+const users = db.getUsers();
+const user = new User('Bruce', 'Wayne');
+
+console.log(users);
+
+db.addUser(user);
+
+console.log(users);
+            </pre>
+            <h5>Конфигурируемый модуль</h5>
+            <pre data-enlighter-language="js">
+function greeting(greetText) {
+    return function(name) => `${greetText}, ${name}`
+}
+
+// Или такая конструкция
+module.exports = greeting => {
+    return name => `${greeting}, ${name}`;
+};
+
+***
+
+// Использовать так
+const greet = require('./greet')('Привет');
+const message = greet('Тиски');
+console.log(message);            </pre>
         </div>
     </li>
 
     <li>
-        <div class="collapsible-header">000</div>
+        <div class="collapsible-header">Events(EventEmitter)</div>
         <div class="collapsible-body">
             <pre data-enlighter-language="js">
+const EventEmitter = require('events');
 
+// Создаем экземляр обработчика событий
+const emitter = new EventEmitter;
+
+// подписываемся на некое событие start, и определяем call-back функцию которая принимает аргумент message
+emitter.on('start', (message) => {
+    console.log(message);
+});
+
+emitter.emit('start', 'Started');
+// emit - запускает событие start и передает в call-back функцию параметр 'Started'
+
+emitter.removeAllListeners();
+// removeAllListeners - отключить все слушатели событий
+emitter.emit('start', 'Started');
+// уже не сработает
             </pre>
         </div>
     </li>
