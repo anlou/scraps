@@ -13,7 +13,7 @@ server.listen(port, () => {
     console.log('Server listening on: http://localhost:%s', port);
 });
             </pre>
-            <h5>Более сложный пример с обработко маршрутов</h5>
+            <h5>Более сложный пример с обработкой маршрутов</h5>
             <pre data-enlighter-language="javascript">
 const http = require('http');
 const fs = require('fs');
