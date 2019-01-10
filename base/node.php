@@ -226,6 +226,47 @@ emitter.emit('start', 'Started');
     </li>
 
     <li>
+        <div class="collapsible-header">Поток чтения/записи (stream)</div>
+        <div class="collapsible-body">
+            <pre data-enlighter-language="js">
+const fs = require('fs');
+
+// Поток чтения
+const stream = fs.createReadStream('index.txt', 'utf-8');
+// Поток записи
+const output = fs.createWriteStream('index.md');
+
+// Запись в переменную data
+let data = '';
+// Подписываемся на событие получнеия данных потока, и записываем их в data
+stream.on('data', part => data += part);
+// Подписываемся на событие end
+stream.on('end', () => console.log('End', data.length));
+
+// ***
+
+// Запись сразу в поток
+stream.on('data', part => output.write(part));
+
+// Подписываемся на ошибки
+stream.on('error', error => console.log(error.message));
+            </pre>
+            <h5>Свзяка чтения-запись с помощью pipe</h5>
+            <pre data-enlighter-language="js">
+const fs = require('fs');
+
+// Поток чтения
+const input = fs.createReadStream('index.txt');
+// Поток записи
+const output = fs.createWriteStream('index_output.txt');
+
+// Свзяка чтения-запись с помощью pipe
+input.pipe(output);
+            </pre>
+        </div>
+    </li>
+
+    <li>
         <div class="collapsible-header">000</div>
         <div class="collapsible-body">
             <pre data-enlighter-language="js">
