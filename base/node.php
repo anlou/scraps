@@ -267,6 +267,69 @@ input.pipe(output);
     </li>
 
     <li>
+        <div class="collapsible-header">Сервер на node.js</div>
+        <div class="collapsible-body">
+            <pre data-enlighter-language="js">
+const http = require('http');
+const fs = require('fs');
+// Для формирования путей используется path
+const path = require('path');
+
+// Функиция помошник для формирования ошибки на среврере
+function handleError(res, error) {
+    // Запишем заголовок ответа
+    res.writeHead(500, {'Content-type': 'text/plain'});
+    // Вывдадим ошибку
+    res.end(error.message);
+}
+
+
+http.createServer((req, res) => {
+    if (req.url === '/') {
+        // Создадим поток для загрузки index
+        const stream = fs.createWriteStream(path.join(__dirname, 'public', 'html', 'index.html'));
+        // Обработаем ошибки потока
+        stream.on('error', error =>  handleError(res, error));
+        // Пропишем заголовки ответа сервера
+        res.writeHead(200, {'Content-type': 'text/html'});
+        // Передаем данные потока в response, метод pipe звязывает потоки чтения-записи
+        stream.pipe(res);
+
+    } else if (req.url.match(/.css$/)) {
+        // Обработаем запросы на получения css
+        const stream = fs.readFile(path.join(__dirname, 'public', 'style', req.url));
+        stream.on('error', error =>  handleError(res, error));
+
+        res.writeHead(200, {'Content-type': 'text/css'});
+        stream.pipe(res);
+
+    } else if (req.url.match(/.js$/)) {
+        // Обработаем запросы на получения js
+        const stream = fs.readFile(path.join(__dirname, 'public', 'js', req.url));
+        if (error) handleError(res, error);
+
+        res.writeHead(200, {'Content-type': 'text/javascript'});
+        stream.pipe(res);
+
+    } else {
+        res.writeHead(404, {'Content-type': 'text/plain'});
+        res.end('404 not found');
+    }
+}).listen(3000, () => console.log('Сервер работает на 3000'));
+            </pre>
+        </div>
+    </li>
+
+    <li>
+        <div class="collapsible-header">000</div>
+        <div class="collapsible-body">
+            <pre data-enlighter-language="js">
+
+            </pre>
+        </div>
+    </li>
+
+    <li>
         <div class="collapsible-header">000</div>
         <div class="collapsible-body">
             <pre data-enlighter-language="js">
