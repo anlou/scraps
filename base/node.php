@@ -321,10 +321,94 @@ http.createServer((req, res) => {
     </li>
 
     <li>
-        <div class="collapsible-header">000</div>
+        <div class="collapsible-header">Шаблонизатор на node</div>
         <div class="collapsible-body">
             <pre data-enlighter-language="js">
+const http = require('http');
+const path = require('path');
+const fs = require('fs');
 
+/**
+ * Вспомогательная функция для парсинга данных переданных POST в json
+ *
+ * @param body POST         Данные формата name=user&password=Qwerty
+ * @return обьект           json формата
+ */
+function parseBody(body) {
+    const result = {};
+    // Разьеденим на пары ключ=значение
+    const keyValueParse = body.split('&');
+
+    keyValueParse.forEach((keyValue) => {
+        // Деструктуризацией присвоим значения в key и value
+        const [key, value] = keyValue.split('=');
+        // Добавим их в обьект
+        result[key] = value;
+    });
+
+    return result;
+}
+
+/**
+ * Вспомогательная функция для шаблонизатора
+ *
+ * @param templateName          Имя шаблона
+ * @param dataForTemplate       Данные для вывода в шаблоне]
+ * @param done                  Функция обратного вызова
+ */
+
+function render(templateName, dataForTemplate, done) {
+    // в методах readFile и createReadStream второй параметр - кодировка, 3 - калбек
+    fs.readFile(path.join(__dirname, 'views', `${templateName}.view.html`), 'utf-8', (error, file) => {
+        if (error) return done(error);
+
+        let html = file;
+        for (let prop in dataForTemplate) {
+            // Перебором данных для шаблона меняем на их переданные значения
+            // Первый { пишем тот который указан в шаблоне. Пример: <p>{item}</p>
+            // regex для замены шаблонными данными в нескольких местах шаблона
+            const regex = new RegExp(`{${prop}}`, 'g');
+            html = html.replace(regex, dataForTemplate[prop]);
+        }
+        done(null, html);
+    });
+}
+
+http.createServer((req, res) => {
+    switch (req.method) {
+        case 'GET':
+            // Для GET запроса выведем форму, используя поток и pipe
+            const stream = fs.createReadStream(path.join(__dirname, 'views', 'form.view.html'));
+            // Подпишемся на ошибки потока
+            stream.on('error', error => console.error(error.message));
+            // Отправим заголовок
+            res.writeHead(200, {'Content-type': 'text/html'});
+            // Направим поток на выдачу
+            stream.pipe(res);
+            break;
+        case 'POST':
+            // Если запрос пришел с формы получим данные
+            let body = '';
+            // Подпишемся на событие получение данных
+            req.on('data', data => body += data);
+            req.on('end', () => {
+                // Подпишемся на событие завршения получения данных
+                const data = parseBody(body);
+                render('post', data, (error, html) => {
+                    if (error) {
+                        res.writeHead(500, {'Content-type': 'text/plain'});
+                        // Что бы выйти добавим return
+                        return res.end(error.message)
+                    }
+
+                    res.writeHead(200, {'Content-type': 'text/html'});
+                    res.end(html);
+                });
+            });
+            break;
+    }
+
+}).listen(3000, () => console.log('Сервер работает на 3000 порте'));
             </pre>
         </div>
     </li>
