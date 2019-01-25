@@ -103,11 +103,17 @@ http.createServer((req, res) => {
             </pre>
             <h5>Сервер на express</h5>
             <pre data-enlighter-language="js">
-
 const express = require('express');
 const todos = require('./todos');
 
 const app = express();
+
+/**
+ * Создание надстроек express, в app.set отправвляется пара 'ключ', 'значение'
+ *
+ * Устанавливаем шаблонизатор на pug
+ */
+app.set('view engine', 'pug');
 
 /**
  * Создадим middleware функцию, можно пережать ее напряму в app.use((req, res, next) => ...)
@@ -138,7 +144,9 @@ app.use(express.static(__dirname + '/public'));
  */
 app.get('/', (req, res) => {
     // метод send сам определяет content-type, но метода res.end также остался
-    res.send('Express best');
+    res.end('index');
+
+    // для шаблонизатора нужно использовать res.render('index')
 });
 
 app.get('/todos', (req, res) => {
