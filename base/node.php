@@ -439,6 +439,40 @@ http.createServer((req, res) => {
     </li>
 
     <li>
+        <div class="collapsible-header">Автоматический перезапуск сревера для разработки, nodemon</div>
+        <div class="collapsible-body">
+            <pre data-enlighter-language="js">
+{
+  "name": "expressCD",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+// Добавляем команлду start с параметром nodemon <имя файла> за которым нужно следить
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+// Установим nodemon
+    "nodemon": "^1.18.9"
+  }
+}            </pre>
+        </div>
+    </li>
+
+    <li>
+        <div class="collapsible-header">000</div>
+        <div class="collapsible-body">
+            <pre data-enlighter-language="js">
+
+            </pre>
+        </div>
+    </li>
+
+    <li>
         <div class="collapsible-header">000</div>
         <div class="collapsible-body">
             <pre data-enlighter-language="js">
