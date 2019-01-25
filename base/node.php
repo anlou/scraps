@@ -109,6 +109,33 @@ const todos = require('./todos');
 
 const app = express();
 
+/**
+ * Создадим middleware функцию, можно пережать ее напряму в app.use((req, res, next) => ...)
+ *
+ * @param req
+ * @param res
+ * @param next передаеся для указания express что после выполнения данной функции нужжно идти дальше
+ */
+function log(req, res, next) {
+    let data = new Date(Date.now());
+
+    console.log(`${data} - ${req.method} - ${req.url}`);
+    // теперь выполнение не остановится после этой функции, а пойдет далее
+    next();
+}
+// Тепер функция log сработает при каждом обращении, (но если до нее дойдет очередь, если не указать next)*
+app.use(log);
+
+/**
+ * express.static - служит для возврата статических файлов, для этого нужно указать папку в которой они расположены
+ * Теперь в запросе например site.loc/index.html нам вернет index.html файл который расколожен в каталоге /public/
+ * И посколько express.static передана как middleware она будет срабатываеть при каждом запросе сервера
+ */
+app.use(express.static(__dirname + '/public'));
+
+/**
+ * Маршруты
+ */
 app.get('/', (req, res) => {
     // метод send сам определяет content-type, но метода res.end также остался
     res.send('Express best');
@@ -133,7 +160,9 @@ app.get('/todos/:id', (req, res) => {
     res.json(todo);
 });
 
-
+/**
+ * Включаем прослушивание порта
+ */
 app.listen(3000, () => {
     console.log('Server work at 3000');
 });
