@@ -144,9 +144,13 @@ app.use(express.static(__dirname + '/public'));
  */
 app.get('/', (req, res) => {
     // метод send сам определяет content-type, но метода res.end также остался
-    res.end('index');
+    res.send('index');
 
     // для шаблонизатора нужно использовать res.render('index')
+    res.render('index', {
+        title: 'Express todo',
+        todos: todos
+    });
 });
 
 app.get('/todos', (req, res) => {
