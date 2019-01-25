@@ -105,13 +105,38 @@ http.createServer((req, res) => {
             <pre data-enlighter-language="js">
 
 const express = require('express');
+const todos = require('./todos');
+
 const app = express();
+
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    // метод send сам определяет content-type, но метода res.end также остался
+    res.send('Express best');
 });
+
+app.get('/todos', (req, res) => {
+    console.log(req.query);
+
+    if (req.query.completed) {
+        // req.query содерждит все переданные параметры. Если передан параметр completed, отсортируем вывод по этому значению
+        return res.json(todos.filter(todo => todo.compeleted.toString() === req.query.completed))
+    }
+    // Для возврата json
+    res.json(todos);
+});
+
+// Указание параметра в запросе (:id), он будет находится в req.params
+app.get('/todos/:id', (req, res) => {
+    // req.params.id сожержит :id
+    let todo = todos.find(todo => todo.id == req.params.id);
+    if (!todo) return res.sendStatus(404);
+    res.json(todo);
+});
+
+
 app.listen(3000, () => {
-    console.log('Express web app on localhost:3000');
-})
+    console.log('Server work at 3000');
+});
             </pre>
         </div>
     </li>
