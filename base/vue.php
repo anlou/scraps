@@ -449,7 +449,102 @@ export default {
         </div>
     </li>
 
+    <li>
+        <div class="collapsible-header">Props</div>
+        <div class="collapsible-body">
+            <pre data-enlighter-language="java-script">
+// Родительский компонент
+<template>
+  <div id="app">
+    <h2>Out title</h2>
+      // для передачи данных в дочерний используем v-bund(:)<имя переменной для дочернего компонента>="<Сам обьект>"
+    <List :people="people"/>
+  </div>
+</template>
 
+<script>
+import List from './components/List';
+export default {
+    components: {
+        List: List
+    },
+
+    data() {
+        return {
+            // обьект для передачи в дочерниий компонент
+            people: ['Max', 'Payne', 'Tony', 'Stark']
+        }
+    }
+}
+</script>
+
+// Дочерний компонент
+
+<template>
+  <div>
+    <ul>
+        // используем переданый people
+      <li
+       v-for="person in people"
+      >
+        {{person}}
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+  export default {
+      // для использования експортируем его как props
+      props: {
+          people: {
+              type: Array,
+              required: true // передача обязательна
+              default: [] // если не передан то по умолчанию вернет []
+          }
+      },
+
+      data() {
+          return {
+          }
+      },
+
+      methods: {
+          getPeople: function () {
+              return this.people; // Доступ к people возмоден через this
+          }
+      }
+  }
+</script>
+
+            </pre>
+            <h2>Передача из дочерного элемента в родительский(пользовательские события)</h2>
+            <pre data-enlighter-language="java-script">
+// В дочернем элементе
+methods: {
+  saveMsg: function () {
+    // передача происходит через $emit, 1й параметр - имя значения передаваемое в родительский шаблон, 2й - значение
+    this.$emit('message', this.message);
+  }
+}
+
+// В родительском элементе
+<template>
+  <div id="app">
+    <h2>Out title</h2>
+    <List :people="people" @message="displayMsg" // указываем @<имя передаваемого параметра>="функиция обработчик"
+    />
+  </div>
+</template>
+...
+methods: {
+    displayMsg: function (message) {
+        this.people.push(message)
+    }
+}
+            </pre>
+        </div>
+    </li>
 
     <li>
         <div class="collapsible-header">Ссылки на элементы (Refs)</div>
