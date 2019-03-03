@@ -565,10 +565,27 @@ app.get('/', (req, res) => {
     </li>
 
     <li>
-        <div class="collapsible-header">000</div>
+        <div class="collapsible-header">Express server + twig</div>
         <div class="collapsible-body">
             <pre data-enlighter-language="javascript">
+const express = require('express'),
+      Twig = require('twig');
 
+const app = express();
+const twig = Twig.twig;
+
+app.set("twig options", {
+    allow_async: true, // Allow asynchronous compiling
+    strict_variables: false
+});
+
+app.get('/', (req, res) => {
+    res.render('index.twig', {
+        msg : "Hello World"
+    });
+});
+
+app.listen(3000, () => console.log('Server Work on 3000 port'));
             </pre>
         </div>
     </li>
