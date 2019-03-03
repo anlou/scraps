@@ -3,7 +3,7 @@
     <li>
         <div class="collapsible-header">Сервер на node</div>
         <div class="collapsible-body">
-            <pre data-enlighter-language="js">
+            <pre data-enlighter-language="javascript">
 const http = require('http');
 const port = 8080;
 const server = http.createServer((req, res) => {
@@ -102,7 +102,7 @@ http.createServer((req, res) => {
 }).listen(3000, () => console.log('Сервер работает на 3000 порте'));
             </pre>
             <h5>Сервер на express</h5>
-            <pre data-enlighter-language="js">
+            <pre data-enlighter-language="javascript">
 const express = require('express');
 const todos = require('./todos');
 
@@ -185,7 +185,7 @@ app.listen(3000, () => {
     <li>
         <div class="collapsible-header">Модули</div>
         <div class="collapsible-body">
-            <pre data-enlighter-language="js">
+            <pre data-enlighter-language="javascript">
 const data = require('./users');
 const User = require('./user');
 
@@ -222,7 +222,7 @@ exports.get = getUser;
                 Также, можно групировать модули в папку, в которой создавать index.js который подключает все внутрение файлы,
                 и экспортирует их.
             </div>
-            <pre data-enlighter-language="js">
+            <pre data-enlighter-language="javascript">
 // index.js распологается в директории ./db
 const db = require('./db');
 const User = require('./user');
@@ -232,7 +232,7 @@ module.exports = {
     User,
 };
             </pre>
-            <pre data-enlighter-language="js">
+            <pre data-enlighter-language="javascript">
 // Использование
 const db = require('./db').db;
 const User = require('./db').User;
@@ -247,7 +247,7 @@ db.addUser(user);
 console.log(users);
             </pre>
             <h5>Конфигурируемый модуль</h5>
-            <pre data-enlighter-language="js">
+            <pre data-enlighter-language="javascript">
 function greeting(greetText) {
     return function(name) => `${greetText}, ${name}`
 }
@@ -269,7 +269,7 @@ console.log(message);            </pre>
     <li>
         <div class="collapsible-header">Events(EventEmitter)</div>
         <div class="collapsible-body">
-            <pre data-enlighter-language="js">
+            <pre data-enlighter-language="javascript">
 const EventEmitter = require('events');
 
 // Создаем экземляр обработчика событий
@@ -294,7 +294,7 @@ emitter.emit('start', 'Started');
     <li>
         <div class="collapsible-header">Поток чтения/записи (stream)</div>
         <div class="collapsible-body">
-            <pre data-enlighter-language="js">
+            <pre data-enlighter-language="javascript">
 const fs = require('fs');
 
 // Поток чтения
@@ -318,7 +318,7 @@ stream.on('data', part => output.write(part));
 stream.on('error', error => console.log(error.message));
             </pre>
             <h5>Свзяка чтения-запись с помощью pipe</h5>
-            <pre data-enlighter-language="js">
+            <pre data-enlighter-language="javascript">
 const fs = require('fs');
 
 // Поток чтения
@@ -335,7 +335,7 @@ input.pipe(output);
     <li>
         <div class="collapsible-header">Сервер на node.js</div>
         <div class="collapsible-body">
-            <pre data-enlighter-language="js">
+            <pre data-enlighter-language="javascript">
 const http = require('http');
 const fs = require('fs');
 // Для формирования путей используется path
@@ -389,7 +389,7 @@ http.createServer((req, res) => {
     <li>
         <div class="collapsible-header">Шаблонизатор на node</div>
         <div class="collapsible-body">
-            <pre data-enlighter-language="js">
+            <pre data-enlighter-language="javascript">
 const http = require('http');
 const path = require('path');
 const fs = require('fs');
@@ -482,7 +482,7 @@ http.createServer((req, res) => {
     <li>
         <div class="collapsible-header">Автоматический перезапуск сревера для разработки, nodemon</div>
         <div class="collapsible-body">
-            <pre data-enlighter-language="js">
+            <pre data-enlighter-language="javascript">
 {
   "name": "expressCD",
   "version": "1.0.0",
@@ -507,7 +507,7 @@ http.createServer((req, res) => {
     <li>
         <div class="collapsible-header">Сервер на Express</div>
         <div class="collapsible-body">
-            <pre data-enlighter-language="js">
+            <pre data-enlighter-language="javascript">
 const express = require('express');
 const todos = require('./todos');
 
@@ -543,9 +543,31 @@ app.listen(3000, () => console.log('Server Work on 3000 port'));
     </li>
 
     <li>
+        <div class="collapsible-header">Middleware</div>
+        <div class="collapsible-body">
+            <pre data-enlighter-language="javascript">
+// Создаем middleware функцию
+function log(req, res, next) {
+    let date = new Date(Date.now());
+
+    console.log(`${date} - ${req.method} - ${req.url}`);
+    res.next(); // Для передачи управления далее, к роутерам
+}
+
+// используем use для подключения нашей функции для каждого запроса, до роутов
+app.use(log);
+
+app.get('/', (req, res) => {
+    res.send('Express');
+});
+            </pre>
+        </div>
+    </li>
+
+    <li>
         <div class="collapsible-header">000</div>
         <div class="collapsible-body">
-            <pre data-enlighter-language="js">
+            <pre data-enlighter-language="javascript">
 
             </pre>
         </div>
@@ -554,7 +576,7 @@ app.listen(3000, () => console.log('Server Work on 3000 port'));
     <li>
         <div class="collapsible-header">000</div>
         <div class="collapsible-body">
-            <pre data-enlighter-language="js">
+            <pre data-enlighter-language="javascript">
 
             </pre>
         </div>
