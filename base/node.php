@@ -505,9 +505,38 @@ http.createServer((req, res) => {
     </li>
 
     <li>
-        <div class="collapsible-header">000</div>
+        <div class="collapsible-header">Сервер на Express</div>
         <div class="collapsible-body">
             <pre data-enlighter-language="js">
+const express = require('express');
+const todos = require('./todos');
+
+const app = express(); // Инициализируем сервер на express
+
+app.get('/', (req, res) => { // Создаем роутер
+    res.send('<h1>Express</h1>'); // метод send сам определяет тип контента
+});
+
+app.get('/todos', (req, res) => { // обрабытваем еще один роутер
+    console.log(req.query); // req.query содержит переаметры переданные в адр. строке, формата .../todos?completed=true
+
+    if(req.query.completed) { // Если передан ключь completed, вывод фильтруем по нему
+        res.json(todos.filter(item => item.done.toString() === req.query.completed))
+    }
+
+    res.json(todos);
+});
+
+app.get('/todos/:id', (req, res) => { // обрабатывает запрос формата /todos/1, где 1 будет параметр под именем id, находится в req.params.id
+    let fTodo = todos.find(todo => todo.id == req.params.id);
+
+    if (!fTodo) return res.status(404).send('Не найдено');
+
+    res.json(fTodo);
+});
+
+
+app.listen(3000, () => console.log('Server Work on 3000 port'));
 
             </pre>
         </div>
