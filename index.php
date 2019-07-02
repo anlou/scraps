@@ -54,6 +54,7 @@
                 <li class="tab"><a href="#laravel">laravel</a></li>
                 <li class="tab"><a href="#vue">Vue</a></li>
                 <li class="tab"><a href="#node">Node</a></li>
+                <li class="tab"><a href="#pytho">Python</a></li>
             </ul>
         </div>
 
@@ -111,6 +112,10 @@
 
         <div class="col" id="node">
 	        <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/node.php"?>
+        </div>
+
+        <div class="col" id="pytho">
+	        <?php include $_SERVER["DOCUMENT_ROOT"] . "/base/py.php"?>
         </div>
 
     </div>
